@@ -1,0 +1,52 @@
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+  <ul class="nav">
+    <li class="nav-item">
+      <h5 class="my-0 mr-md-auto font-weight-bold"><a class="nav-link text-dark px-0" [routerLink]="['/']">COMP308</a></h5>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark px-3" [routerLink]="['/students']">Students</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark px-3" [routerLink]="['/courses']">Courses</a>
+    </li>
+  </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container">
+  <h2>Edit Course</h2>
+  <form (ngSubmit)="update()" novalidate>
+
+    <div class="form-group">
+      <label >Course Code</label>
+      <input type="text" required class="form-control" [(ngModel)]="article.courseCode" name="courseCode">
+    </div>
+
+    <div class="form-group">
+      <label >Course Name</label>
+      <input type="text" required class="form-control" [(ngModel)]="article.courseName" name="courseName">
+    </div>
+
+    <div class="form-group">
+      <label >Section</label>
+      <input type="text" required class="form-control" [(ngModel)]="article.section" name="secton">
+    </div>
+
+    <div class="form-group">
+      <label >Semester</label>
+      <input type="text" required class="form-control" [(ngModel)]="article.semester" name="semester">
+    </div>
+
+
+    <div>
+      <input type="submit" value="Update" class="btn btn-primary">
+    </div>
+    <strong>{{errorMessage}}</strong>
+  </form>
+
+</main>
+

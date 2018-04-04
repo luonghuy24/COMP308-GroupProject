@@ -1,0 +1,12 @@
+﻿<div class="pt-5" style="background: #F5F5F5;height: 100vh">
+  <form class =".form form-signin" (ngSubmit)="signin()">
+    <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+    <input type="text" [(ngModel)]="credentials.username" class="form-control mb-3" name="username">
+    <input type="password" [(ngModel)]="credentials.password" class="form-control"
+                 name="password">
+    <div>
+      <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block mt-3">
+    </div>
+    <p class="mt-4 text-center">{{errorMessage}}</p>
+  </form>
+</div>
