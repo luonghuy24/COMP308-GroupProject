@@ -1,6 +1,5 @@
-System.register(['@angular/core', '../records.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "../records.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '../records.service', '../../authentication/au
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, records_service_1, authentication_service_1;
-    var ListComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, records_service_1, authentication_service_1, ListComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,9 +21,10 @@ System.register(['@angular/core', '../records.service', '../../authentication/au
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }],
-        execute: function() {
-            ListComponent = (function () {
+            }
+        ],
+        execute: function () {
+            ListComponent = /** @class */ (function () {
                 function ListComponent(_articlesService, _authenticationService) {
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
@@ -39,13 +39,14 @@ System.register(['@angular/core', '../records.service', '../../authentication/au
                     core_1.Component({
                         selector: 'list',
                         templateUrl: 'app/records/list/list.template.html'
-                    }), 
-                    __metadata('design:paramtypes', [records_service_1.RecordsService, authentication_service_1.AuthenticationService])
+                    }),
+                    __metadata("design:paramtypes", [records_service_1.RecordsService,
+                        authentication_service_1.AuthenticationService])
                 ], ListComponent);
                 return ListComponent;
             }());
             exports_1("ListComponent", ListComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=list.component.js.map
