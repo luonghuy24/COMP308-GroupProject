@@ -18,7 +18,7 @@ const RecordSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
-    motivation: string
+    motivation: String
 });
 
 RecordSchema.virtual('createdAt').get(function () {
