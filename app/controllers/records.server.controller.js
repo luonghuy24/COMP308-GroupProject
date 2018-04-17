@@ -18,10 +18,6 @@ exports.create = function (req, res) {
 
     course.creator = req.user;
 
-    if(req.user.type == 'Patient') {
-        course.patient = req.user
-    }
-
     course.save((err) => {
         if (err) {
             return res.status(400).send({
@@ -34,7 +30,9 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Record.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, course) => {
+    Record.find().sort('-created').populate('creator', 'firstName lastName fullName')
+                                    .populate('patient', 'firstName lastName fullName')
+                                    .exec((err, course) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
@@ -46,7 +44,9 @@ exports.list = function (req, res) {
 };
 //
 exports.courseByID = function (req, res, next, id) {
-    Record.findById(id).populate('creator', 'firstName lastName fullName').exec((err, record) => {if (err) return next(err);
+    Record.findById(id).populate('creator', 'firstName lastName fullName')
+                        .populate('patient', 'firstName lastName fullName')
+                        .exec((err, record) => {if (err) return next(err);
     if (!record) return next(new Error('Failed to load record '
         + id));
     req.record = record;
@@ -55,42 +55,42 @@ exports.courseByID = function (req, res, next, id) {
 };
 //
 exports.read = function (req, res) {
-    res.status(200).json(req.course);
+    res.status(200).json(req.record);
 };
 //
 exports.update = function (req, res) {
-    const course = req.record;
-    course.courseCode = req.body.courseCode;
-    course.courseName = req.body.courseName;
-    course.section    = req.body.section;
-    course.semester   = req.body.semester;
-    course.save((err) => {
+    const record = req.record;
+    record.bodyTemperature = req.body.bodyTemperature;
+    record.pulseRate = req.body.pulseRate;
+    record.bloodPressure    = req.body.bloodPressure;
+    record.respiratoryRate   = req.body.respiratoryRate;
+    record.save((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(course);
+            res.status(200).json(record);
         }
     });
 };
 //
 exports.delete = function (req, res) {
-    const course = req.course;
-    course.remove((err) => {
+    const record = req.record;
+    record.remove((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(course);
+            res.status(200).json(record);
         }
     });
 };
 //The hasAuthorization() middleware uses the req.article and req.user objects
 //to verify that the current user is the creator of the current article
 exports.hasAuthorization = function (req, res, next) {
-    if (req.course.creator.id !== req.user.id) {
+    if (req.record.creator.id !== req.user.id) {
         return res.status(403).send({
             message: 'User is not authorized'
         });
@@ -99,7 +99,10 @@ exports.hasAuthorization = function (req, res, next) {
 };
 
 exports.getRecords = function(req, res){
-    Record.find({creator: req.params.userId}).sort('-created').populate('creator', 'firstName lastName fullName').exec((err, courses) => {
+    Record.find({creator: req.params.userId}).sort('-created')
+        .populate('creator', 'firstName lastName fullName')
+        .populate('patient', 'firstName lastName fullName')
+        .exec((err, courses) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)

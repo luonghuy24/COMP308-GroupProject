@@ -153,7 +153,7 @@ exports.list = function (req, res) {
       })
 
     } else {
-      User.find().sort('-created').exec((err, students) => {
+      User.find({type: 'Patient'}).sort('-created').exec((err, students) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)

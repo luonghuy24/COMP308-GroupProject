@@ -15,9 +15,9 @@ module.exports = function (app) {
 
 
 
-    app.route('/api/students')
+    app.route('/api/users')
         .get(users.list)
-    app.route('/api/students/:userId')
+    app.route('/api/users/:userId')
         .get(users.read)
     app.param('userId', users.studentByID);
 

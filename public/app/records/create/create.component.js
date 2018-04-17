@@ -28,13 +28,22 @@ System.register(['@angular/core', '@angular/router', '../records.service', '../.
             }],
         execute: function() {
             CreateComponent = (function () {
-                function CreateComponent(_router, _articlesService, _authenticationService) {
+                function CreateComponent(_router, _route, _articlesService, _authenticationService) {
                     this._router = _router;
+                    this._route = _route;
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
                     this.article = {};
-                    this.user = _authenticationService.user;
+                    // this.user = _authenticationService.user;
                 }
+                CreateComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.user = this._authenticationService.user;
+                    this._route.queryParams.subscribe(function (params) {
+                        _this.article.patientName = params['patientName'];
+                        _this.article.patient = params['patientId'];
+                    });
+                };
                 CreateComponent.prototype.create = function () {
                     var _this = this;
                     console.log(this.article);
@@ -48,7 +57,7 @@ System.register(['@angular/core', '@angular/router', '../records.service', '../.
                         selector: 'create',
                         templateUrl: 'app/records/create/create.template.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, records_service_1.RecordsService, authentication_service_1.AuthenticationService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, records_service_1.RecordsService, authentication_service_1.AuthenticationService])
                 ], CreateComponent);
                 return CreateComponent;
             }());
