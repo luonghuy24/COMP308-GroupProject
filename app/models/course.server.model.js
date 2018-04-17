@@ -5,18 +5,10 @@ const CourseSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    courseCode: {
-        type: String,
-        default: '',
-        trim: true,
-        required: 'Title cannot be blank'
-    },
-    courseName: {
-        type: String, default: '',
-        trim: true
-    },
-    section: String,
-    semester: String,
+    bodyTemperature: Integer,
+    pulseRate: Integer,
+    bloodPressure: Integer,
+    respiratoryRate: Integer,
     creator: {
         type: Schema.ObjectId,
         ref: 'Student'

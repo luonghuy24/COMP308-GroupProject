@@ -34,6 +34,21 @@ export class StudentsService {
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
+
+    courses(studentId: any): Observable<any> {
+        return this._http
+            .get('api/students/'+studentId+'/courses')
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
+    search(courseCode: any): Observable<any> {
+        return this._http
+            .get('api/students?c=' + courseCode)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         return Observable.throw(error.json().message || 'Server error');
     }

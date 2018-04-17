@@ -1,5 +1,6 @@
 ﻿// Load the module dependencies
-const Student = require('mongoose').model('Student');
+const User = require('mongoose').model('User');
+const Course = require('mongoose').model('Record');
 const passport = require('passport');
 
 // Create a new error handling controller method
@@ -54,7 +55,7 @@ exports.signin = function (req, res, next) {
 
 // Create a new controller method that creates new 'regular' users
 exports.signup = function (req, res) {
-    const user = new Student(req.body);
+    const user = new User(req.body);
     user.provider = 'local';
 
     // Try saving the User
@@ -139,7 +140,20 @@ exports.requiresLogin = function (req, res, next) {
 //
 
 exports.list = function (req, res) {
-    Student.find().sort('-created').exec((err, students) => {
+
+    if(req.query.c) {
+      Course.find({courseCode: req.query.c}).sort('-created').populate('creator', 'email firstName lastName studentNumber program fullName').exec((err, courses) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(courses.map(function(course){return course.creator}));
+          }
+      })
+
+    } else {
+      User.find().sort('-created').exec((err, students) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
@@ -147,7 +161,8 @@ exports.list = function (req, res) {
         } else {
             res.status(200).json(students);
         }
-    });
+      });
+    }
 };
 
 exports.studentByID = function (req, res, next, id) {

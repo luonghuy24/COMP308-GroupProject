@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './courses/courses.module', './students/students.module'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './records/records.module', './students/students.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, courses_module_1, students_module_1;
+    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, records_module_1, students_module_1;
     var AppModule;
     return {
         setters:[
@@ -41,8 +41,8 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
             function (authentication_module_1_1) {
                 authentication_module_1 = authentication_module_1_1;
             },
-            function (courses_module_1_1) {
-                courses_module_1 = courses_module_1_1;
+            function (records_module_1_1) {
+                records_module_1 = records_module_1_1;
             },
             function (students_module_1_1) {
                 students_module_1 = students_module_1_1;
@@ -59,7 +59,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
                             authentication_module_1.AuthenticationModule,
                             home_module_1.HomeModule,
                             students_module_1.StudentsModule,
-                            courses_module_1.CoursesModule,
+                            records_module_1.RecordsModule,
                             router_1.RouterModule.forRoot(app_routes_1.AppRoutes),
                         ],
                         declarations: [

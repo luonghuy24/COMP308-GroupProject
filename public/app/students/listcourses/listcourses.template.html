@@ -18,29 +18,35 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h2 class="mt-3">All Students</h2>
+  <h2 class="mt-3">{{user.fullName}}'s Courses</h2>
 
   <table class="table table-bordered mt-4">
     <thead>
       <tr class="bg-info text-white">
-        <th>Name</th>
-        <th>Email</th>
-        <th>Student Number</th>
-        <th>Program</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Section</th>
+        <th>Semester</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let article of articles">
-        <td><a [routerLink]="['/students', article._id]">{{article.fullName}}</a></td>
-        <td>{{article.email}}</td>
-        <td>{{article.studentNumber}}</td>
-        <td>{{article.program}}</td>
+        <td><a [routerLink]="['/courses', article._id]">{{article.courseCode}}</a></td>
+        <td>{{article.courseName}}</td>
+        <td>{{article.section}}</td>
+        <td>{{article.semester}}</td>
+        <td>
+          <div *ngIf="allowEdit">
+            <a class="btn btn-secondary mr-2" [routerLink]="['/courses', article._id, 'edit']">edit</a>
+            <button class="btn btn-danger" (click)="delete()">delete</button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="articles && articles.length === 0">
-      No articles yet, why don't you <a [routerLink]="['/articles/
-  create']">create one</a>?
+  <div *ngIf="allowEdit">
+    <a class="btn btn-primary mt-4" [routerLink]="['/courses/create']">Add New Course</a>
   </div>
 </main>
 

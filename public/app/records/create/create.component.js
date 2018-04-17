@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../courses.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../records.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../courses.service', '../.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, courses_service_1, authentication_service_1;
+    var core_1, router_1, records_service_1, authentication_service_1;
     var CreateComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['@angular/core', '@angular/router', '../courses.service', '../.
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (courses_service_1_1) {
-                courses_service_1 = courses_service_1_1;
+            function (records_service_1_1) {
+                records_service_1 = records_service_1_1;
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
@@ -39,15 +39,15 @@ System.register(['@angular/core', '@angular/router', '../courses.service', '../.
                     var _this = this;
                     this._articlesService
                         .create(this.article)
-                        .subscribe(function (createdArticle) { return _this._router.navigate(['/courses',
+                        .subscribe(function (createdArticle) { return _this._router.navigate(['/records',
                         createdArticle._id]); }, function (error) { return _this.errorMessage = error; });
                 };
                 CreateComponent = __decorate([
                     core_1.Component({
                         selector: 'create',
-                        templateUrl: 'app/courses/create/create.template.html'
+                        templateUrl: 'app/records/create/create.template.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, authentication_service_1.AuthenticationService])
+                    __metadata('design:paramtypes', [router_1.Router, records_service_1.RecordsService, authentication_service_1.AuthenticationService])
                 ], CreateComponent);
                 return CreateComponent;
             }());

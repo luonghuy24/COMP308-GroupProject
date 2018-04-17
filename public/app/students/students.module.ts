@@ -6,7 +6,7 @@ import { StudentsRoutes } from './students.routes';
 import { StudentsComponent } from './students.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
-// import { ListCoursesComponent } from './listcourses/listcourses.component';
+import { ListCoursesComponent } from './listcourses/listcourses.component';
 
 @NgModule({
     imports: [
@@ -18,7 +18,7 @@ import { ViewComponent } from './view/view.component';
         StudentsComponent,
         ListComponent,
         ViewComponent,
-        // ListCoursesComponent
+        ListCoursesComponent
     ]
 })
 export class StudentsModule { }

@@ -13,7 +13,7 @@ module.exports = function () {
     require('../app/models/student.server.model');
     // Load the 'Article' model
     require('../app/models/article.server.model');
-    require('../app/models/course.server.model');
+    require('../app/models/record.server.model');
 
     // Return the Mongoose connection instance
     return db;

@@ -11,7 +11,7 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var Observable_1, core_1, http_1;
-    var CoursesService;
+    var RecordsService;
     return {
         setters:[
             function (_1) {},
@@ -25,51 +25,51 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
                 http_1 = http_1_1;
             }],
         execute: function() {
-            CoursesService = (function () {
-                function CoursesService(_http) {
+            RecordsService = (function () {
+                function RecordsService(_http) {
                     this._http = _http;
-                    this._baseURL = 'api/courses';
+                    this._baseURL = 'api/records';
                 }
-                CoursesService.prototype.create = function (article) {
+                RecordsService.prototype.create = function (article) {
                     return this._http
                         .post(this._baseURL, article)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CoursesService.prototype.read = function (articleId) {
+                RecordsService.prototype.read = function (articleId) {
                     return this._http
                         .get(this._baseURL + "/" + articleId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CoursesService.prototype.update = function (article) {
+                RecordsService.prototype.update = function (article) {
                     return this._http
                         .put(this._baseURL + "/" + article._id, article).map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CoursesService.prototype.delete = function (articleId) {
+                RecordsService.prototype.delete = function (articleId) {
                     return this._http
                         .delete(this._baseURL + "/" + articleId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CoursesService.prototype.list = function () {
+                RecordsService.prototype.list = function () {
                     return this._http
                         .get(this._baseURL)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CoursesService.prototype.handleError = function (error) {
+                RecordsService.prototype.handleError = function (error) {
                     return Observable_1.Observable.throw(error.json().message || 'Server error');
                 };
-                CoursesService = __decorate([
+                RecordsService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], CoursesService);
-                return CoursesService;
+                ], RecordsService);
+                return RecordsService;
             }());
-            exports_1("CoursesService", CoursesService);
+            exports_1("RecordsService", RecordsService);
         }
     }
 });
-//# sourceMappingURL=courses.service.js.map
+//# sourceMappingURL=records.service.js.map

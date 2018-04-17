@@ -18,8 +18,7 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h2>Courses</h2>
-
+  <h2>All Courses</h2>
 
   <table class="table table-bordered mt-4">
     <thead>
@@ -28,7 +27,6 @@
         <th>Course Name</th>
         <th>Section</th>
         <th>Semester</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -37,19 +35,9 @@
         <td>{{article.courseName}}</td>
         <td>{{article.section}}</td>
         <td>{{article.semester}}</td>
-        <td>
-          <a class="btn btn-secondary mr-2" [routerLink]="['/courses', article._id, 'edit']">edit</a>
-          <button class="btn btn-danger" (click)="delete()">delete</button>
-        </td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="articles && articles.length === 0">
-      No courses yet, why don't you <a [routerLink]="['/courses/
-  create']">create one</a>?
-  </div>
-
-  <a class="btn btn-primary mt-4" [routerLink]="['/courses/create']">create new Course</a>
 
 </main>
 

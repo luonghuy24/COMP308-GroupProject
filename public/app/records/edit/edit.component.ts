@@ -1,11 +1,11 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CoursesService } from '../courses.service';
+import { RecordsService } from '../records.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
     selector: 'edit',
-    templateUrl: 'app/courses/edit/edit.template.html'
+    templateUrl: 'app/records/edit/edit.template.html'
 })
 export class EditComponent {
     article: any = {};
@@ -14,7 +14,7 @@ export class EditComponent {
     user: any;
     constructor(private _router: Router,
         private _route: ActivatedRoute,
-        private _articlesService: CoursesService,
+        private _articlesService: RecordsService,
         private _authenticationService: AuthenticationService) {
         this.user = _authenticationService.user;
     }

@@ -6,25 +6,26 @@ import { RouterModule } from '@angular/router';
 // import { ArticlesComponent } from './articles.component';
 
 
-import { ArticlesRoutes } from './courses.routes';
-import { CoursesComponent } from './courses.component';
+import { RecordsRoutes } from './records.routes';
+import { RecordsComponent } from './records.component';
 
 import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
+
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule.forChild(ArticlesRoutes),
+        RouterModule.forChild(RecordsRoutes),
     ],
     declarations: [
-        CoursesComponent,
+        RecordsComponent,
         CreateComponent,
         ListComponent,
         ViewComponent,
         EditComponent,
     ]
 })
-export class CoursesModule { }
+export class RecordsModule { }

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../students.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../students.service', '@angular/router', '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../students.service'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, students_service_1;
+    var core_1, students_service_1, router_1, authentication_service_1;
     var ListCoursesComponent;
     return {
         setters:[
@@ -19,23 +19,27 @@ System.register(['@angular/core', '../students.service'], function(exports_1, co
             },
             function (students_service_1_1) {
                 students_service_1 = students_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (authentication_service_1_1) {
+                authentication_service_1 = authentication_service_1_1;
             }],
         execute: function() {
             ListCoursesComponent = (function () {
-                function ListCoursesComponent(_articlesService) {
+                function ListCoursesComponent(_articlesService, _authenticationService, _router, _route) {
                     this._articlesService = _articlesService;
+                    this._authenticationService = _authenticationService;
+                    this._router = _router;
+                    this._route = _route;
                 }
-                ListCoursesComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this._articlesService.list().subscribe(function (articles) { return _this.articles
-                        = articles; });
-                };
                 ListCoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'list',
-                        templateUrl: 'app/students/list/listcourses.template.html'
+                        templateUrl: 'app/students/listcourses/listcourses.template.html'
                     }), 
-                    __metadata('design:paramtypes', [students_service_1.StudentsService])
+                    __metadata('design:paramtypes', [students_service_1.StudentsService, authentication_service_1.AuthenticationService, router_1.Router, router_1.ActivatedRoute])
                 ], ListCoursesComponent);
                 return ListCoursesComponent;
             }());

@@ -22,6 +22,9 @@ module.exports = function (app) {
     app.param('userId', users.studentByID);
 
 
+    app.route('/api/users')
+        .get(users.list)
+
 
     // Set up the Facebook OAuth routes
     app.get('/oauth/facebook', passport.authenticate('facebook', {

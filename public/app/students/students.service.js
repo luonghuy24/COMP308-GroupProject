@@ -59,6 +59,18 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                StudentsService.prototype.courses = function (studentId) {
+                    return this._http
+                        .get('api/students/' + studentId + '/courses')
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                StudentsService.prototype.search = function (courseCode) {
+                    return this._http
+                        .get('api/students?c=' + courseCode)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
                 StudentsService.prototype.handleError = function (error) {
                     return Observable_1.Observable.throw(error.json().message || 'Server error');
                 };

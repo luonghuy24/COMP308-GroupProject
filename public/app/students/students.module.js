@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './students.routes', './students.component', './list/list.component', './view/view.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './students.routes', './students.component', './list/list.component', './view/view.component', './listcourses/listcourses.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, router_1, students_routes_1, students_component_1, list_component_1, view_component_1;
+    var core_1, common_1, forms_1, router_1, students_routes_1, students_component_1, list_component_1, view_component_1, listcourses_component_1;
     var StudentsModule;
     return {
         setters:[
@@ -37,9 +37,11 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
             },
             function (view_component_1_1) {
                 view_component_1 = view_component_1_1;
+            },
+            function (listcourses_component_1_1) {
+                listcourses_component_1 = listcourses_component_1_1;
             }],
         execute: function() {
-            // import { ListCoursesComponent } from './listcourses/listcourses.component';
             StudentsModule = (function () {
                 function StudentsModule() {
                 }
@@ -54,6 +56,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
                             students_component_1.StudentsComponent,
                             list_component_1.ListComponent,
                             view_component_1.ViewComponent,
+                            listcourses_component_1.ListCoursesComponent
                         ]
                     }), 
                     __metadata('design:paramtypes', [])

@@ -1,10 +1,10 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../authentication/authentication.service';
-import { CoursesService } from '../courses.service';
+import { RecordsService } from '../records.service';
 @Component({
     selector: 'view',
-    templateUrl: 'app/courses/view/view.template.html',
+    templateUrl: 'app/records/view/view.template.html',
 })
 export class ViewComponent {
     user: any;
@@ -16,7 +16,7 @@ export class ViewComponent {
     constructor(private _router: Router,
         private _route: ActivatedRoute,
         private _authenticationService: AuthenticationService,
-        private _articlesService: CoursesService) { }
+        private _articlesService: RecordsService) { }
     //
     ngOnInit() {
         this.user = this._authenticationService.user

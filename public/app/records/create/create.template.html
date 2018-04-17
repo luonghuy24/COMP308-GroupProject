@@ -1,0 +1,118 @@
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+  <ul class="nav">
+    <li class="nav-item">
+      <h5 class="my-0 mr-md-auto font-weight-bold"><a class="nav-link text-dark px-0" [routerLink]="['/']">COMP308</a></h5>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark px-3" [routerLink]="['/students']">Students</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark px-3" [routerLink]="['/courses']">Courses</a>
+    </li>
+  </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container-fluid">
+  <h2>New Daily Record</h2>
+  <form (ngSubmit)="create()" novalidate>
+
+      <div class="form-group">
+        <label >Date</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="far fa-calendar-alt"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" data-provide="datepicker">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label >Body Temperature</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-thermometer-empty"></i>
+            </span>
+          </div>
+          <input type="number" class="form-control" [(ngModel)]="article.bodyTemperature" name="courseCode">
+          <div class="input-group-append">
+            <span class="input-group-text">Celsius</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Pulse Rate</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-heartbeat"></i>
+            </span>
+          </div>
+          <input type="number" required class="form-control" [(ngModel)]="article.pulseRate" name="courseName">
+          <div class="input-group-append">
+            <span class="input-group-text">Per minute</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Blood Pressure</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-tint"></i>
+            </span>
+          </div>
+          <input type="number" required class="form-control" [(ngModel)]="article.bloodPressure" name="secton">
+          <div class="input-group-append">
+            <span class="input-group-text">mm Hg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label >Respiratory Rate</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-thermometer"></i>
+            </span>
+          </div>
+          <input type="number" required class="form-control" [(ngModel)]="article.respiratoryRate" name="semester">
+          <div class="input-group-append">
+            <span class="input-group-text">Per minute</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label >Patient</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+          <input type="text" required class="form-control" [(ngModel)]="article.respiratoryRate" name="semester">
+        </div>
+      </div>
+
+      <div>
+          <input type="submit" class="btn btn-primary">
+      </div>
+      <strong id="error">{{errorMessage}}</strong>
+    </form>
+
+</main>
+
+

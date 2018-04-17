@@ -1,12 +1,12 @@
-System.register(['./courses.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
+System.register(['./records.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var courses_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
-    var ArticlesRoutes;
+    var records_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
+    var RecordsRoutes;
     return {
         setters:[
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
+            function (records_component_1_1) {
+                records_component_1 = records_component_1_1;
             },
             function (create_component_1_1) {
                 create_component_1 = create_component_1_1;
@@ -21,9 +21,9 @@ System.register(['./courses.component', './create/create.component', './list/lis
                 edit_component_1 = edit_component_1_1;
             }],
         execute: function() {
-            exports_1("ArticlesRoutes", ArticlesRoutes = [{
-                    path: 'courses',
-                    component: courses_component_1.CoursesComponent,
+            exports_1("RecordsRoutes", RecordsRoutes = [{
+                    path: 'records',
+                    component: records_component_1.RecordsComponent,
                     children: [
                         { path: '', component: list_component_1.ListComponent },
                         { path: 'create', component: create_component_1.CreateComponent },
@@ -34,4 +34,4 @@ System.register(['./courses.component', './create/create.component', './list/lis
         }
     }
 });
-//# sourceMappingURL=courses.routes.js.map
+//# sourceMappingURL=records.routes.js.map

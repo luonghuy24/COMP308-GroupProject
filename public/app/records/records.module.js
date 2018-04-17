@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './courses.routes', './courses.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './records.routes', './records.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, router_1, courses_routes_1, courses_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
-    var CoursesModule;
+    var core_1, common_1, forms_1, router_1, records_routes_1, records_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
+    var RecordsModule;
     return {
         setters:[
             function (core_1_1) {
@@ -26,11 +26,11 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (courses_routes_1_1) {
-                courses_routes_1 = courses_routes_1_1;
+            function (records_routes_1_1) {
+                records_routes_1 = records_routes_1_1;
             },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
+            function (records_component_1_1) {
+                records_component_1 = records_component_1_1;
             },
             function (create_component_1_1) {
                 create_component_1 = create_component_1_1;
@@ -45,18 +45,18 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
                 edit_component_1 = edit_component_1_1;
             }],
         execute: function() {
-            CoursesModule = (function () {
-                function CoursesModule() {
+            RecordsModule = (function () {
+                function RecordsModule() {
                 }
-                CoursesModule = __decorate([
+                RecordsModule = __decorate([
                     core_1.NgModule({
                         imports: [
                             common_1.CommonModule,
                             forms_1.FormsModule,
-                            router_1.RouterModule.forChild(courses_routes_1.ArticlesRoutes),
+                            router_1.RouterModule.forChild(records_routes_1.RecordsRoutes),
                         ],
                         declarations: [
-                            courses_component_1.CoursesComponent,
+                            records_component_1.RecordsComponent,
                             create_component_1.CreateComponent,
                             list_component_1.ListComponent,
                             view_component_1.ViewComponent,
@@ -64,11 +64,11 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
                         ]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], CoursesModule);
-                return CoursesModule;
+                ], RecordsModule);
+                return RecordsModule;
             }());
-            exports_1("CoursesModule", CoursesModule);
+            exports_1("RecordsModule", RecordsModule);
         }
     }
 });
-//# sourceMappingURL=courses.module.js.map
+//# sourceMappingURL=records.module.js.map

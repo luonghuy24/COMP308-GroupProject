@@ -1,7 +1,7 @@
 ﻿// Load the module dependencies
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('mongoose').model('Student');
+const User = require('mongoose').model('User');
 
 // Create the Local strategy configuration method
 module.exports = function () {

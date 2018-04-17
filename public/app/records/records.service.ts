@@ -3,8 +3,8 @@ import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {Http, Headers, Request, RequestMethod, Response} from '@angular/http';
 @Injectable()
-export class CoursesService {
-    private _baseURL = 'api/courses';
+export class RecordsService {
+    private _baseURL = 'api/records';
     constructor(private _http: Http) { }
     create(article: any): Observable<any> {
         return this._http

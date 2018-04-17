@@ -1,7 +1,11 @@
 ﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
   <ul class="nav">
     <li class="nav-item">
-      <h5 class="my-0 mr-md-auto font-weight-bold"><a class="nav-link text-dark px-0" [routerLink]="['/']">COMP308</a></h5>
+      <h5 class="my-0 mr-md-auto font-weight-bold">
+        <a class="nav-link text-dark px-0" [routerLink]="['/']">
+          COMP308
+        </a>
+      </h5>
     </li>
     <li class="nav-item">
       <a class="nav-link text-dark px-3" [routerLink]="['/students']">Students</a>
@@ -18,13 +22,14 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h1 class="mt-5">COMP308-Lab3</h1>
-  <h3>Nguyen Luong Huy - 300913455</h3>
-
+  <h1 class="mt-5">
+    <i class="fas fa-medkit mr-1"></i>
+    Group Project
+  </h1>
   <div *ngIf="user">
     <div class="text-left mt-4">
-        <a class="btn btn-lg btn-primary mr-2" [routerLink]="['/courses']">My Courses</a>
-        <a class="btn btn-lg btn-danger" [routerLink]="['/courses/create']">Create Courses</a>
+        <a class="btn btn-lg btn-primary mr-2" [routerLink]="['students', user.id, 'records']">My Records</a>
+        <a class="btn btn-lg btn-danger" [routerLink]="['/records/create']">Create New Daily Record</a>
     </div>
   </div>
 

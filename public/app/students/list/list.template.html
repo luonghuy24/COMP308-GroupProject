@@ -20,7 +20,24 @@
 <main role="main" class="container-fluid">
   <h2 class="mt-3">All Students</h2>
 
-  <table class="table table-bordered mt-4">
+  <form (ngSubmit)="searchStudents()" novalidate class="mt-3">
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Course Code</div>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="search" name="search">
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-bordered mt-3">
     <thead>
       <tr class="bg-info text-white">
         <th>Name</th>
