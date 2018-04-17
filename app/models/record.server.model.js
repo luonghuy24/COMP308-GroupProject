@@ -17,7 +17,8 @@ const RecordSchema = new Schema({
     patient: {
         type: Schema.ObjectId,
         ref: 'User'
-    }
+    },
+    motivation: string
 });
 
 RecordSchema.virtual('createdAt').get(function () {
