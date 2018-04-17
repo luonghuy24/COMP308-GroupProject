@@ -8,10 +8,10 @@
       </h5>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark px-3" [routerLink]="['/users']">Users</a>
+      <a class="nav-link text-dark px-3" [routerLink]="['/users']">Daily Tip</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-dark px-3" [routerLink]="['/records']">Records</a>
+      <a class="nav-link text-dark px-3" [routerLink]="['/records']">Emergency Message</a>
     </li>
   </ul>
 
@@ -27,9 +27,14 @@
     Group Project
   </h1>
   <div *ngIf="user">
-    <div class="text-left mt-4">
+    <div *ngIf="user.type == 'Nurse'">
+      <a class="btn btn-lg btn-primary mr-2" [routerLink]="['/users']">Patients List</a>
+    </div>
+    <div *ngIf="user.type == 'Patient'">
+      <div class="text-left mt-4">
         <a class="btn btn-lg btn-primary mr-2" [routerLink]="['/users', user.id, 'records']">My Records</a>
-        <a class="btn btn-lg btn-danger" [routerLink]="['/records/create']">Create New Daily Record</a>
+        <a class="btn btn-lg btn-danger" [routerLink]="['/records/create']" [queryParams]="{patientName: user.fullName, patientId: user.id}">Create New Daily Record</a>
+      </div>
     </div>
   </div>
 

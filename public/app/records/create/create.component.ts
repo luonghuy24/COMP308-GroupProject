@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecordsService } from '../records.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
@@ -12,10 +12,22 @@ export class CreateComponent {
     errorMessage: string;
     user: any;
     constructor(private _router: Router,
+        private _route: ActivatedRoute,
         private _articlesService: RecordsService,
         private _authenticationService: AuthenticationService) {
-        this.user = _authenticationService.user;
+        // this.user = _authenticationService.user;
     }
+
+    ngOnInit() {
+        this.user = this._authenticationService.user
+        this._route.queryParams.subscribe(params => {
+            this.article.patientName = params['patientName'];
+            this.article.patient   = params['patientId'];
+        })
+
+    }
+
+
     create() {
         console.log(this.article)
         this._articlesService

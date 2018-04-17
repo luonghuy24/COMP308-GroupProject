@@ -24,17 +24,33 @@ System.register(["@angular/core", "@angular/router", "../records.service", "../.
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
+<<<<<<< HEAD
             }
         ],
         execute: function () {
             CreateComponent = /** @class */ (function () {
                 function CreateComponent(_router, _articlesService, _authenticationService) {
+=======
+            }],
+        execute: function() {
+            CreateComponent = (function () {
+                function CreateComponent(_router, _route, _articlesService, _authenticationService) {
+>>>>>>> 2102bf4abb5859570f6e7a08fe96277e229cca59
                     this._router = _router;
+                    this._route = _route;
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
                     this.article = {};
-                    this.user = _authenticationService.user;
+                    // this.user = _authenticationService.user;
                 }
+                CreateComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.user = this._authenticationService.user;
+                    this._route.queryParams.subscribe(function (params) {
+                        _this.article.patientName = params['patientName'];
+                        _this.article.patient = params['patientId'];
+                    });
+                };
                 CreateComponent.prototype.create = function () {
                     var _this = this;
                     console.log(this.article);
@@ -47,10 +63,15 @@ System.register(["@angular/core", "@angular/router", "../records.service", "../.
                     core_1.Component({
                         selector: 'create',
                         templateUrl: 'app/records/create/create.template.html'
+<<<<<<< HEAD
                     }),
                     __metadata("design:paramtypes", [router_1.Router,
                         records_service_1.RecordsService,
                         authentication_service_1.AuthenticationService])
+=======
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, records_service_1.RecordsService, authentication_service_1.AuthenticationService])
+>>>>>>> 2102bf4abb5859570f6e7a08fe96277e229cca59
                 ], CreateComponent);
                 return CreateComponent;
             }());

@@ -53,6 +53,9 @@ System.register(["@angular/core", "../users.service", "@angular/router", "../../
                         });
                     });
                 };
+                ListCoursesComponent.prototype.ngOnDestroy = function () {
+                    this.paramsObserver.unsubscribe();
+                };
                 ListCoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'list',

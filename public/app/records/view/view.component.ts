@@ -30,7 +30,7 @@ export class ViewComponent {
                     this.allowEdit = (this.user && this.user._id === this.
                         article.creator._id);
                 },
-                error => this._router.navigate(['/courses'])
+                error => this._router.navigate(['/records'])
                 );
         });
     }
@@ -41,7 +41,7 @@ export class ViewComponent {
     //
     delete() {
         this._articlesService.delete(this.article._id).
-            subscribe(deletedArticle => this._router.navigate(['/courses']),
+            subscribe(deletedArticle => this._router.navigate(['/users', this.user.id ,'records']),
             error => this.errorMessage = error);
     }
 }

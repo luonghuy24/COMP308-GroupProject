@@ -39,5 +39,9 @@ export class ListCoursesComponent {
                 }
         });
     }
+
+    ngOnDestroy() {
+        this.paramsObserver.unsubscribe();
+    }
 }
 

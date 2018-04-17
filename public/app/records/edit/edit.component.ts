@@ -31,7 +31,7 @@ export class EditComponent {
         this.paramsObserver.unsubscribe();
     }
     update() {
-        this._articlesService.update(this.article).subscribe(savedArticle => this._router.navigate(['/courses', savedArticle._id]),
+        this._articlesService.update(this.article).subscribe(savedArticle => this._router.navigate(['/records', savedArticle._id]),
             error => this.errorMessage =
                 error);
     }
