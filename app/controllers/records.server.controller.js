@@ -1,5 +1,5 @@
 ﻿const mongoose = require('mongoose');
-const Course = mongoose.model('Record');
+const Record = mongoose.model('Record');
 const Student = require('mongoose').model('Student');
 //
 function getErrorMessage(err) {
@@ -14,8 +14,14 @@ function getErrorMessage(err) {
 };
 //
 exports.create = function (req, res) {
-    const course = new Course(req.body);
+    const course = new Record(req.body);
+
     course.creator = req.user;
+
+    if(req.user.type == 'Patient') {
+        course.patient = req.user
+    }
+
     course.save((err) => {
         if (err) {
             return res.status(400).send({
@@ -28,7 +34,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Course.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, course) => {
+    Record.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, course) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
@@ -40,10 +46,10 @@ exports.list = function (req, res) {
 };
 //
 exports.courseByID = function (req, res, next, id) {
-    Course.findById(id).populate('creator', 'firstName lastName fullName').exec((err, course) => {if (err) return next(err);
-    if (!course) return next(new Error('Failed to load course '
+    Record.findById(id).populate('creator', 'firstName lastName fullName').exec((err, record) => {if (err) return next(err);
+    if (!record) return next(new Error('Failed to load record '
         + id));
-    req.course = course;
+    req.record = record;
     next();
 });
 };
@@ -53,7 +59,7 @@ exports.read = function (req, res) {
 };
 //
 exports.update = function (req, res) {
-    const course = req.course;
+    const course = req.record;
     course.courseCode = req.body.courseCode;
     course.courseName = req.body.courseName;
     course.section    = req.body.section;
@@ -92,8 +98,8 @@ exports.hasAuthorization = function (req, res, next) {
     next();
 };
 
-exports.getCourses = function(req, res){
-    Course.find({creator: req.params.userId}).sort('-created').populate('creator', 'firstName lastName fullName').exec((err, courses) => {
+exports.getRecords = function(req, res){
+    Record.find({creator: req.params.userId}).sort('-created').populate('creator', 'firstName lastName fullName').exec((err, courses) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)

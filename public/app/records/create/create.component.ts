@@ -17,7 +17,7 @@ export class CreateComponent {
         this.user = _authenticationService.user;
     }
     create() {
-
+        console.log(this.article)
         this._articlesService
             .create(this.article)
             .subscribe(createdArticle => this._router.navigate(['/records',

@@ -166,14 +166,14 @@ exports.list = function (req, res) {
 };
 
 exports.studentByID = function (req, res, next, id) {
-    Student.findById(id).exec((err, student) => {if (err) return next(err);
-        if (!student) return next(new Error('Failed to load student '
+    User.findById(id).exec((err, user) => {if (err) return next(err);
+        if (!user) return next(new Error('Failed to load user '
             + id));
-        req.student = student;
+        req.user = user;
         next();
     });
 };
 //
 exports.read = function (req, res) {
-    res.status(200).json(req.student);
+    res.status(200).json(req.user);
 };

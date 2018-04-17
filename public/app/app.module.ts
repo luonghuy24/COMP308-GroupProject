@@ -10,7 +10,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 // import { ArticlesModule } from './articles/articles.module';
 // import { CoursesModule } from './courses/courses.module';
 import { RecordsModule } from './records/records.module';
-import { StudentsModule } from './students/students.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
     imports: [
@@ -18,9 +18,9 @@ import { StudentsModule } from './students/students.module';
         HttpModule,
         AuthenticationModule,
         HomeModule,
-        StudentsModule,
+        UsersModule,
         RecordsModule,
-        RouterModule.forRoot(AppRoutes),
+        RouterModule.forRoot(AppRoutes)
     ],
     declarations: [
         AppComponent

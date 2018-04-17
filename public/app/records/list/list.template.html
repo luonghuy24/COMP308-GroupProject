@@ -18,23 +18,27 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h2>All Courses</h2>
+  <h2>All Records</h2>
 
   <table class="table table-bordered mt-4">
     <thead>
       <tr class="bg-info text-white">
-        <th>Course Code</th>
-        <th>Course Name</th>
-        <th>Section</th>
-        <th>Semester</th>
+        <th>Patient</th>
+        <th>Body Temperature</th>
+        <th>Blood Pressure</th>
+        <th>Pulse Rate</th>
+        <th>Respiratory Rate</th>
+        <th>Updated By</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let article of articles">
-        <td><a [routerLink]="['/courses', article._id]">{{article.courseCode}}</a></td>
-        <td>{{article.courseName}}</td>
-        <td>{{article.section}}</td>
-        <td>{{article.semester}}</td>
+        <td><a [routerLink]="['/records', article._id]">{{article.creator.fullName}}</a></td>
+        <td>{{article.bodyTemperature}}</td>
+        <td>{{article.bloodPressure}}</td>
+        <td>{{article.pulseRate}}</td>
+        <td>{{article.respiratoryRate}}</td>
+        <td>{{article.creator.fullName}}</td>
       </tr>
     </tbody>
   </table>

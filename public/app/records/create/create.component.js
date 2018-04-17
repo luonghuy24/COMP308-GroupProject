@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/router', '../records.service', '../.
                 }
                 CreateComponent.prototype.create = function () {
                     var _this = this;
+                    console.log(this.article);
                     this._articlesService
                         .create(this.article)
                         .subscribe(function (createdArticle) { return _this._router.navigate(['/records',

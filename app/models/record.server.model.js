@@ -1,3 +1,4 @@
+var dateFormat = require('dateformat');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const RecordSchema = new Schema({
@@ -18,4 +19,14 @@ const RecordSchema = new Schema({
         ref: 'User'
     }
 });
+
+RecordSchema.virtual('createdAt').get(function () {
+    return dateFormat(this.created, "dddd, mmmm dS, yyyy");
+});
+
+RecordSchema.set('toJSON', {
+    getters: true,
+    virtuals: true
+});
+
 mongoose.model('Record', RecordSchema);
