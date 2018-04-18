@@ -120,6 +120,7 @@
     <Folder Include="public\app\authentication\signup\" />
     <Folder Include="public\app\home\" />
     <Folder Include="public\app\articles\" />
+    <Folder Include="public\app\emergency\" />
     <Folder Include="public\assets\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
