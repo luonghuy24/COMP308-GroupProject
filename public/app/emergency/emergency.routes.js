@@ -1,4 +1,4 @@
-System.register(["./emergency.component", "./list/list.component", "./view/view.component", "./listcourses/listcourses.component"], function (exports_1, context_1) {
+System.register(["./emergency.component", "./list/list.component", "./view/view.component", "./listemergency/listcourses.component"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var emergency_component_1, list_component_1, view_component_1, listcourses_component_1, UsersRoutes;
@@ -19,7 +19,7 @@ System.register(["./emergency.component", "./list/list.component", "./view/view.
         ],
         execute: function () {
             exports_1("UsersRoutes", UsersRoutes = [{
-                    path: 'users',
+                    path: 'emergency',
                     component: emergency_component_1.UsersComponent,
                     children: [
                         { path: '', component: list_component_1.ListComponent },

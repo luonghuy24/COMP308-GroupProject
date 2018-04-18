@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, Request, RequestMethod, Response} from '@angular/http';
 @Injectable()
 export class UsersService {
-    private _baseURL = 'api/users';
+    private _baseURL = 'api/emergency';
     constructor(private _http: Http) { }
     create(article: any): Observable<any> {
         return this._http

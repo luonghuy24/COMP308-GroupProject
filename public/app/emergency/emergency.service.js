@@ -29,7 +29,7 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
             UsersService = /** @class */ (function () {
                 function UsersService(_http) {
                     this._http = _http;
-                    this._baseURL = 'api/users';
+                    this._baseURL = 'api/emergency';
                 }
                 UsersService.prototype.create = function (article) {
                     return this._http

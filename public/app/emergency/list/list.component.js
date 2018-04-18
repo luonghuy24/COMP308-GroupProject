@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../users.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../emergency.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,14 +10,14 @@ System.register(["@angular/core", "../users.service", "../../authentication/auth
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, users_service_1, authentication_service_1, ListComponent;
+    var core_1, emergency_service_1, authentication_service_1, ListComponent;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (users_service_1_1) {
-                users_service_1 = users_service_1_1;
+            function (emergency_service_1_1) {
+                emergency_service_1 = emergency_service_1_1;
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
@@ -44,10 +44,10 @@ System.register(["@angular/core", "../users.service", "../../authentication/auth
                         selector: 'list',
                         templateUrl: 'app/users/list/list.template.html'
                     }),
-                    __metadata("design:paramtypes", [typeof (_a = typeof users_service_1.UsersService !== "undefined" && users_service_1.UsersService) === "function" && _a || Object, authentication_service_1.AuthenticationService])
+                    __metadata("design:paramtypes", [emergency_service_1.UsersService,
+                        authentication_service_1.AuthenticationService])
                 ], ListComponent);
                 return ListComponent;
-                var _a;
             }());
             exports_1("ListComponent", ListComponent);
         }
