@@ -3,6 +3,8 @@ const User = require('mongoose').model('User');
 const Course = require('mongoose').model('Record');
 const passport = require('passport');
 
+var ml = require('machine_learning');
+
 // Create a new error handling controller method
 const getErrorMessage = function (err) {
     // Define the error message variable
@@ -176,4 +178,81 @@ exports.studentByID = function (req, res, next, id) {
 //
 exports.read = function (req, res) {
     res.status(200).json(req.user);
+};
+
+
+exports.symptomClassifier = function (req, res) {
+    //read the new data
+    var fever = req.body.fever;
+    console.log(fever);
+    var cough = req.body.cough;
+    console.log(cough);
+    var fatigue = req.body.fatigue;
+    console.log(fatigue);
+    var age = parseInt(req.body.age);
+    console.log(age);
+    //
+    // Predicting influenca
+    //'fever' 'cough' ‘fatigue’, 'age'
+    var data =
+        [
+            ['no', 'yes', 'yes', 60],
+            ['yes', 'no', 'no', 40],
+            ['yes', 'yes', 'no', 50],
+            ['yes', 'yes', 'yes', 70],
+            ['yes', 'yes', 'yes', 65],
+            ['yes', 'yes', 'no', 35],
+            ['no', 'no', 'no', 30],
+            ['yes', 'no', 'no', 30],
+            ['yes', 'yes', 'no', 35],
+            ['yes', 'yes', 'no', 40],
+            ['yes', 'yes', 'yes', 50],
+            ['yes', 'yes', 'yes', 50],
+            ['no', 'no', 'no', 25],
+            ['yes', 'yes', 'no', 65],
+            ['yes', 'no', 'no', 45],
+            ['yes', 'yes', 'yes', 50]
+
+        ];
+    //decison made
+    var result = [
+        'no', 'no', 'no', 'yes', 'yes',
+        'no', 'no', 'no', 'no', 'no',
+        'no', 'no', 'no', 'no', 'no',
+        'yes'
+    ];
+
+
+
+    //create new Decision Tree using this dataset
+    var dt = new ml.DecisionTree({
+        data: data,
+        result: result
+    });
+    // build the basic structure of this Decision Tree
+    //  build method automatically builds Decision Tree
+    //  by finding the best criteria which minimize
+    //  the whole entropy of Decision Tree recursively.
+    //  (Classification And Regression Tree (CART) Algorithm)
+    dt.build();
+    //classifiy new data using this Decision Tree
+    console.log("Classify : ", dt.classify([fever, cough, fatigue, age]));
+    var classificationResult = dt.classify([fever, cough, fatigue, age])
+    var tree = dt.getTree();
+
+    //Pruning Decision Tree is recommended to avoid overfitting
+    // Decision Tree in this library uses simple pruning algorithm
+    // which merges two branches of Decision Tree
+    // when entropy loss of merging the two branches
+    // is smaller than mingain value.
+    dt.prune(1.0); // 1.0 : mingain.
+
+    // Use the 'response' object to render the 'index' view with a 'title' property
+    // res.render('./results.ejs', {
+    //     classificationResult: JSON.stringify(classificationResult),
+    //     tree: tree
+    // });
+    res.status(200).json({classificationResult: JSON.stringify(classificationResult),
+        tree: tree});
+
 };

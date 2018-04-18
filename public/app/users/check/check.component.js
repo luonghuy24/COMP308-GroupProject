@@ -11,7 +11,7 @@ System.register(['@angular/core', '../users.service', '../../authentication/auth
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, users_service_1, authentication_service_1;
-    var ListComponent;
+    var CheckComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -24,32 +24,55 @@ System.register(['@angular/core', '../users.service', '../../authentication/auth
                 authentication_service_1 = authentication_service_1_1;
             }],
         execute: function() {
-            ListComponent = (function () {
-                function ListComponent(_articlesService, _authenticationService) {
+            CheckComponent = (function () {
+                function CheckComponent(_articlesService, _authenticationService) {
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
+                    this.info = {};
                 }
-                ListComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this.user = this._authenticationService.user;
-                    this._articlesService.list().subscribe(function (articles) { return _this.articles
-                        = articles; });
+                CheckComponent.prototype.ngOnInit = function () {
+                    // this.user = this._authenticationService.user
+                    // this._articlesService.list().subscribe(articles => this.articles
+                    //      = articles);
                 };
-                ListComponent.prototype.searchStudents = function () {
+                CheckComponent.prototype.check = function () {
                     var _this = this;
-                    this._articlesService.search(this.search).subscribe(function (articles) { return _this.articles = articles; });
+                    if (this.info.fever == true) {
+                        this.info.fever = 'yes';
+                    }
+                    else {
+                        this.info.fever = 'no';
+                    }
+                    if (this.info.cough == true) {
+                        this.info.cough = 'yes';
+                    }
+                    else {
+                        this.info.cough = 'no';
+                    }
+                    if (this.info.fatigue == true) {
+                        this.info.fatigue = 'yes';
+                    }
+                    else {
+                        this.info.fatigue = 'no';
+                    }
+                    console.log(this.info);
+                    this._articlesService
+                        .check(this.info)
+                        .subscribe(function (result) { return _this.result = JSON.stringify(result); }),
+                        function (error) { return _this.errorMessage = error; };
+                    ;
                 };
-                ListComponent = __decorate([
+                CheckComponent = __decorate([
                     core_1.Component({
-                        selector: 'list',
-                        templateUrl: 'app/users/list/list.template.html'
+                        selector: 'check',
+                        templateUrl: 'app/users/check/check.template.html'
                     }), 
                     __metadata('design:paramtypes', [users_service_1.UsersService, authentication_service_1.AuthenticationService])
-                ], ListComponent);
-                return ListComponent;
+                ], CheckComponent);
+                return CheckComponent;
             }());
-            exports_1("ListComponent", ListComponent);
+            exports_1("CheckComponent", CheckComponent);
         }
     }
 });
-//# sourceMappingURL=list.component.js.map
+//# sourceMappingURL=check.component.js.map

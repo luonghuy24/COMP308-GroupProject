@@ -13,7 +13,8 @@ module.exports = function (app) {
     // Set up the 'signout' route
     app.route('/api/auth/signout').get(users.signout);
 
-
+    app.route('/api/users/check')
+        .post(users.symptomClassifier)
 
     app.route('/api/users')
         .get(users.list)

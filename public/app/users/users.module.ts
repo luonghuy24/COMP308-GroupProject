@@ -6,6 +6,7 @@ import { UsersRoutes } from './users.routes';
 import { UsersComponent } from './users.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
+import { CheckComponent } from './check/check.component';
 import { ListCoursesComponent } from './listcourses/listcourses.component';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ListCoursesComponent } from './listcourses/listcourses.component';
         UsersComponent,
         ListComponent,
         ViewComponent,
-        ListCoursesComponent
+        ListCoursesComponent,
+        CheckComponent
     ]
 })
 export class UsersModule { }

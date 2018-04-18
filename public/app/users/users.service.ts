@@ -49,6 +49,13 @@ export class UsersService {
             .catch(this.handleError);
     }
 
+    check(article: any): Observable<any> {
+        return this._http
+            .post('api/users/check', article)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         return Observable.throw(error.json().message || 'Server error');
     }

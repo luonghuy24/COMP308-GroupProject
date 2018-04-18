@@ -1,0 +1,67 @@
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+  <ul class="nav">
+    <li class="nav-item">
+      <h5 class="my-0 mr-md-auto font-weight-bold">
+        <a class="nav-link text-dark px-0" [routerLink]="['/']">
+          COMP308
+        </a>
+      </h5>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark px-3" [routerLink]="['/users']">List of Patient</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark px-3" [routerLink]="['/records']">Patient Records</a>
+    </li>
+  </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container-fluid">
+  <div class="jumbotron mt-3 p-3">
+    <form (ngSubmit)="check()" novalidate>
+      <h5>Find your possible medical condition</h5>
+      <div class="lead mb-4">Check your symtoms you have</div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="info.fever" name="acb">
+        <label class="form-check-label">
+          Fever
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="info.cough" name="cough">
+        <label class="form-check-label" for="defaultCheck1">
+          Cough
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="info.fatigue" name="fatigue">
+        <label class="form-check-label" for="defaultCheck1">
+          Fatigue
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label >Age</label>
+        <input type="number" class="form-control" [(ngModel)]="info.age" name="age">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+
+  <div class="jumbotron">
+    <h3>{{result}}</h3>
+  </div>
+
+</main>
+
+
+
