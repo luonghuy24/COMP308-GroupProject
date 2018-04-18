@@ -6,7 +6,7 @@ import { UsersRoutes } from './emergency.routes';
 import { UsersComponent } from './emergency.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
-import { ListCoursesComponent } from './listcourses/listcourses.component';
+import { ListCoursesComponent } from './listemergency/listcourses.component';
 
 @NgModule({
     imports: [

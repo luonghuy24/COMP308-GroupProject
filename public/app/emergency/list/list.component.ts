@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../emergency.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 @Component({
     selector: 'list',

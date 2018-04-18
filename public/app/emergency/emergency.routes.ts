@@ -2,10 +2,10 @@
 import { UsersComponent } from './emergency.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
-import { ListCoursesComponent } from './listcourses/listcourses.component';
+import { ListCoursesComponent } from './listemergency/listcourses.component';
 
 export const UsersRoutes: Routes = [{
-    path: 'users',
+    path: 'emergency',
     component: UsersComponent,
     children: [
         { path: '', component: ListComponent },
