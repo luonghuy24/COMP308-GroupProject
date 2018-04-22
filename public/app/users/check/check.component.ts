@@ -14,9 +14,7 @@ export class CheckComponent {
     constructor(private _articlesService: UsersService,
                 private _authenticationService: AuthenticationService,) { }
     ngOnInit() {
-      // this.user = this._authenticationService.user
-       // this._articlesService.list().subscribe(articles => this.articles
-       //      = articles);
+      this.user = this._authenticationService.user
     }
 
     check() {

@@ -31,19 +31,9 @@
           <dd>{{article.lasttName}}</dd>
           <dt>Email</dt>
           <dd>{{article.email}}</dd>
-          <dt>Student Number</dt>
-          <dd>{{article.studentNumber}}</dd>
-          <dt>Address</dt>
-          <dd>{{article.address}}</dd>
-          <dt>City</dt>
-          <dd>{{article.city}}</dd>
-          <dt>Phone Number</dt>
-          <dd>{{article.phoneNumber}}</dd>
-          <dt>Program</dt>
-          <dd>{{article.program}}</dd>
           <dt>Username</dt>
           <dd>{{article.username}}</dd>
       </dl>
-      <a class="btn btn-primary mr-2" [routerLink]="['courses']">See This Student's Courses</a>
+      <a class="btn btn-primary mr-2" [routerLink]="['records']" [queryParams]="{patientName: article.fullName, patientId: article.id}">See This Patient's records</a>
     </section>
 </main>

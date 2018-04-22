@@ -99,7 +99,10 @@ exports.hasAuthorization = function (req, res, next) {
 };
 
 exports.getRecords = function(req, res){
-    Record.find({creator: req.params.userId}).sort('-created')
+
+    console.log(req.params);
+
+    Record.find({patient: req.params.userId}).sort('-created')
         .populate('creator', 'firstName lastName fullName')
         .populate('patient', 'firstName lastName fullName')
         .exec((err, courses) => {

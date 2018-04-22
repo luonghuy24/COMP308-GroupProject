@@ -115,10 +115,10 @@
 
     </form>
 
-    <div *ngIf="allowEdit">
-      <a class="btn btn-primary mr-2" [routerLink]="['/records', article._id, 'edit']">edit</a>
-      <button class="btn btn-danger" (click)="delete()">delete</button>
-    </div>
+    <!-- <div *ngIf="allowEdit"> -->
+    <a class="btn btn-primary mr-2" [routerLink]="['/records', article._id, 'edit']">edit</a>
+    <button class="btn btn-danger" (click)="delete()">delete</button>
+    <!-- </div> -->
 
   </section>
 </main>

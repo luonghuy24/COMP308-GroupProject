@@ -27,8 +27,9 @@ export class ViewComponent {
                 .subscribe(
                 article => {
                     this.article = article;
-                    this.allowEdit = (this.user && this.user._id === this.
-                        article.creator._id);
+                    // this.allowEdit = (this.user && this.user._id === this.
+                    //     article.creator._id);
+                    this.allowEdit = true
                 },
                 error => this._router.navigate(['/students'])
                 );

@@ -38,8 +38,9 @@
       </div>
     <div *ngIf="user.type == 'Patient'">
       <div class="text-left mt-4">
-        <a class="btn btn-lg btn-primary mr-2" [routerLink]="['/users', user.id, 'records']">My Records</a>
-        <a class="btn btn-lg btn-danger" [routerLink]="['/records/create']" [queryParams]="{patientName: user.fullName, patientId: user.id}">Create New Daily Record</a>
+        <a class="btn btn-lg btn-primary mr-2" [routerLink]="['/users', user.id, 'records']" [queryParams]="{patientName: user.fullName, patientId: user.id}">My Records</a>
+        <a class="btn btn-lg btn-danger mr-2" [routerLink]="['/records/create']" [queryParams]="{patientName: user.fullName, patientId: user.id}">Create New Daily Record</a>
+        <a class="btn btn-lg btn-primary" [routerLink]="['/users', 'check']">Check My Conditions</a>
       </div>
     </div>
   </div>

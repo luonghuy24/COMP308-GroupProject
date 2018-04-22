@@ -22,7 +22,7 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h2 class="mt-3">{{user.fullName}}'s Daily Records</h2>
+  <h2 class="mt-3">{{patientName}}'s Daily Records</h2>
 
   <table class="table table-bordered mt-4">
     <thead>
@@ -40,9 +40,10 @@
       </tr>
     </tbody>
   </table>
-  <div *ngIf="allowEdit">
-    <a class="btn btn-primary mt-3" [routerLink]="['/records/create']" [queryParams]="{patientName: user.fullName, patientId: user.id}">Add New Daily record</a>
-  </div>
+  <a class="btn btn-primary mt-3" [routerLink]="['/records/create']" [queryParams]="{patientName: patientName, patientId: patient}">Add New Daily record</a>
+  <!-- <div *ngIf="allowEdit">
+
+  </div> -->
 </main>
 
 

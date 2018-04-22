@@ -1,5 +1,6 @@
-System.register(["@angular/core", "../users.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
+System.register(['@angular/core', '../users.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "../users.service", "../../authentication/auth
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
-    var core_1, users_service_1, authentication_service_1, CheckComponent;
+    var core_1, users_service_1, authentication_service_1;
+    var CheckComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,19 +22,16 @@ System.register(["@angular/core", "../users.service", "../../authentication/auth
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }
-        ],
-        execute: function () {
-            CheckComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            CheckComponent = (function () {
                 function CheckComponent(_articlesService, _authenticationService) {
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
                     this.info = {};
                 }
                 CheckComponent.prototype.ngOnInit = function () {
-                    // this.user = this._authenticationService.user
-                    // this._articlesService.list().subscribe(articles => this.articles
-                    //      = articles);
+                    this.user = this._authenticationService.user;
                 };
                 CheckComponent.prototype.check = function () {
                     var _this = this;
@@ -65,14 +63,13 @@ System.register(["@angular/core", "../users.service", "../../authentication/auth
                     core_1.Component({
                         selector: 'check',
                         templateUrl: 'app/users/check/check.template.html'
-                    }),
-                    __metadata("design:paramtypes", [users_service_1.UsersService,
-                        authentication_service_1.AuthenticationService])
+                    }), 
+                    __metadata('design:paramtypes', [users_service_1.UsersService, authentication_service_1.AuthenticationService])
                 ], CheckComponent);
                 return CheckComponent;
             }());
             exports_1("CheckComponent", CheckComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=check.component.js.map

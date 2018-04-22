@@ -1,5 +1,6 @@
-System.register(["@angular/core", "../emergency.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
+System.register(['@angular/core', '../emergency.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "../emergency.service", "../../authentication/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
-    var core_1, emergency_service_1, authentication_service_1, ListComponent;
+    var core_1, emergency_service_1, authentication_service_1;
+    var ListComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,10 +22,9 @@ System.register(["@angular/core", "../emergency.service", "../../authentication/
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }
-        ],
-        execute: function () {
-            ListComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            ListComponent = (function () {
                 function ListComponent(_articlesService, _authenticationService) {
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
@@ -43,14 +43,13 @@ System.register(["@angular/core", "../emergency.service", "../../authentication/
                     core_1.Component({
                         selector: 'list',
                         templateUrl: 'app/users/list/list.template.html'
-                    }),
-                    __metadata("design:paramtypes", [emergency_service_1.UsersService,
-                        authentication_service_1.AuthenticationService])
+                    }), 
+                    __metadata('design:paramtypes', [emergency_service_1.UsersService, authentication_service_1.AuthenticationService])
                 ], ListComponent);
                 return ListComponent;
             }());
             exports_1("ListComponent", ListComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=list.component.js.map
