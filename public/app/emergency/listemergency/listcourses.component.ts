@@ -37,7 +37,7 @@ export class ListCoursesComponent {
                     // this.allowEdit = (this.user && this.user._id === this.
                     //     article.creator._id);
                 }
-        });
+        )});
     }
 
     ngOnDestroy() {

@@ -1,10 +1,9 @@
-System.register(['./records.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
+System.register(["./records.component", "./create/create.component", "./list/list.component", "./view/view.component", "./edit/edit.component"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var records_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
-    var RecordsRoutes;
+    var records_component_1, create_component_1, list_component_1, view_component_1, edit_component_1, RecordsRoutes;
     return {
-        setters:[
+        setters: [
             function (records_component_1_1) {
                 records_component_1 = records_component_1_1;
             },
@@ -19,8 +18,9 @@ System.register(['./records.component', './create/create.component', './list/lis
             },
             function (edit_component_1_1) {
                 edit_component_1 = edit_component_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("RecordsRoutes", RecordsRoutes = [{
                     path: 'records',
                     component: records_component_1.RecordsComponent,
@@ -32,6 +32,6 @@ System.register(['./records.component', './create/create.component', './list/lis
                     ],
                 }]);
         }
-    }
+    };
 });
 //# sourceMappingURL=records.routes.js.map

@@ -1,6 +1,5 @@
-System.register(['@angular/core', '../articles.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "../articles.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,18 +9,19 @@ System.register(['@angular/core', '../articles.service'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, articles_service_1;
-    var ListComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, articles_service_1, ListComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (articles_service_1_1) {
                 articles_service_1 = articles_service_1_1;
-            }],
-        execute: function() {
-            ListComponent = (function () {
+            }
+        ],
+        execute: function () {
+            ListComponent = /** @class */ (function () {
                 function ListComponent(_articlesService) {
                     this._articlesService = _articlesService;
                 }
@@ -34,13 +34,13 @@ System.register(['@angular/core', '../articles.service'], function(exports_1, co
                     core_1.Component({
                         selector: 'list',
                         templateUrl: 'app/articles/list/list.template.html'
-                    }), 
-                    __metadata('design:paramtypes', [articles_service_1.ArticlesService])
+                    }),
+                    __metadata("design:paramtypes", [articles_service_1.ArticlesService])
                 ], ListComponent);
                 return ListComponent;
             }());
             exports_1("ListComponent", ListComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=list.component.js.map

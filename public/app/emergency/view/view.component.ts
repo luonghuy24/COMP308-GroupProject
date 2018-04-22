@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../authentication/authentication.service';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../users/users.service';
 @Component({
     selector: 'view',
     templateUrl: 'app/users/view/view.template.html',

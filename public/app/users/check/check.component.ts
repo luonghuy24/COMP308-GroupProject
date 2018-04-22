@@ -40,7 +40,7 @@ export class CheckComponent {
       this._articlesService
           .check(this.info)
           .subscribe(result => this.result = JSON.stringify(result)),
-          error => this.errorMessage = error);
+          error => this.errorMessage = error;
     }
 }
 
