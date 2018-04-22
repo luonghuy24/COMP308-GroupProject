@@ -1,0 +1,55 @@
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+    <ul class="nav">
+        <li class="nav-item">
+            <h5 class="my-0 mr-md-auto font-weight-bold">
+                <a class="nav-link text-dark px-0" [routerLink]="['/']">
+                    COMP308
+                </a>
+            </h5>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Nurse'" [routerLink]="['/emergency/check']">Emergency Check</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">>
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/tips']">Daily Motivation</a>
+        </li>
+    </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container-fluid">
+  <h2>New Daily Motivational Tip</h2>
+  <form (ngSubmit)="create()" novalidate>
+
+      <div class="form-group">
+        <label >Title</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.courseCode" name="courseCode">
+      </div>
+
+      <div class="form-group">
+        <label >Content</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.courseName" name="courseName">
+      </div>
+
+      <div class="form-group">
+        <label >Url</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.section" name="secton">
+      </div>
+
+      <div>
+          <input type="submit" class="btn btn-primary">
+      </div>
+      <strong id="error">{{errorMessage}}</strong>
+    </form>
+
+<h1>New Article</h1>

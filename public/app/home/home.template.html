@@ -15,8 +15,9 @@
         <li class="nav-item" *ngIf="user">
             <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
         </li>
+
         <li class="nav-item" *ngIf="user">
-            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/daily']">Daily Motivation</a>
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
         </li>
     </ul>
 

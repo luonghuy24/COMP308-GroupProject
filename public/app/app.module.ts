@@ -7,7 +7,7 @@ import { AppRoutes } from './app.routes';
 import { HomeModule } from './home/home.module';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationModule } from './authentication/authentication.module';
-// import { ArticlesModule } from './articles/articles.module';
+import { TipsModule } from './tips/tips.module';
 // import { CoursesModule } from './courses/courses.module';
 import { RecordsModule } from './records/records.module';
 import { UsersModule } from './users/users.module';
@@ -20,6 +20,7 @@ import { UsersModule } from './users/users.module';
         HomeModule,
         UsersModule,
         RecordsModule,
+        TipsModule,
         RouterModule.forRoot(AppRoutes)
     ],
     declarations: [

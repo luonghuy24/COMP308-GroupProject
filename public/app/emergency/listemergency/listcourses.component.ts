@@ -17,12 +17,7 @@ export class ListCoursesComponent {
     constructor(private _articlesService: UsersService,
                 private _authenticationService: AuthenticationService,
                 private _router: Router,
-                private _route: ActivatedRoute,) { }
-
-    // ngOnInit() {
-    //     this._articlesService.courses().subscribe(articles => this.articles
-    //         = articles);
-    // }
+                private _route: ActivatedRoute,) { };
 
     ngOnInit() {
         this.user = this._authenticationService.user
@@ -30,14 +25,11 @@ export class ListCoursesComponent {
             let studentId = params['studentId'];
             this._articlesService
                 .records(studentId)
-                .subscribe(
-                articles => {
+                .subscribe( articles => {
                     this.articles = articles;
-                    this.allowEdit = (this.user._id === studentId)
-                    // this.allowEdit = (this.user && this.user._id === this.
-                    //     article.creator._id);
-                }
-        )});
+                    this.allowEdit = true;
+                });
+        });
     }
 
     ngOnDestroy() {

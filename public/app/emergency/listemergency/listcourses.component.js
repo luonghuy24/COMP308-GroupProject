@@ -34,10 +34,7 @@ System.register(['@angular/core', '../emergency.service', '@angular/router', '..
                     this._router = _router;
                     this._route = _route;
                 }
-                // ngOnInit() {
-                //     this._articlesService.courses().subscribe(articles => this.articles
-                //         = articles);
-                // }
+                ;
                 ListCoursesComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.user = this._authenticationService.user;
@@ -47,9 +44,7 @@ System.register(['@angular/core', '../emergency.service', '@angular/router', '..
                             .records(studentId)
                             .subscribe(function (articles) {
                             _this.articles = articles;
-                            _this.allowEdit = (_this.user._id === studentId);
-                            // this.allowEdit = (this.user && this.user._id === this.
-                            //     article.creator._id);
+                            _this.allowEdit = true;
                         });
                     });
                 };

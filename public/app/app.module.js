@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './records/records.module', './users/users.module'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './tips/tips.module', './records/records.module', './users/users.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, records_module_1, users_module_1;
+    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, tips_module_1, records_module_1, users_module_1;
     var AppModule;
     return {
         setters:[
@@ -41,6 +41,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
             function (authentication_module_1_1) {
                 authentication_module_1 = authentication_module_1_1;
             },
+            function (tips_module_1_1) {
+                tips_module_1 = tips_module_1_1;
+            },
             function (records_module_1_1) {
                 records_module_1 = records_module_1_1;
             },
@@ -60,6 +63,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
                             home_module_1.HomeModule,
                             users_module_1.UsersModule,
                             records_module_1.RecordsModule,
+                            tips_module_1.TipsModule,
                             router_1.RouterModule.forRoot(app_routes_1.AppRoutes)
                         ],
                         declarations: [
