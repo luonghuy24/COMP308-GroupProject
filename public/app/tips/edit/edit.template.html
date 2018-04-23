@@ -1,24 +1,54 @@
-﻿<img src="assets/logo.png">
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+    <ul class="nav">
+        <li class="nav-item">
+            <h5 class="my-0 mr-md-auto font-weight-bold">
+                <a class="nav-link text-dark px-0" [routerLink]="['/']">
+                    COMP308
+                </a>
+            </h5>
+        </li>
 
-<h1>Edit Article</h1>
-<form (ngSubmit)="update()" novalidate>
-    <div>
-        <label for="title">Title</label>
-        <div>
-            <input type="text" required [(ngModel)]="article.title"
-                   name="title" placeholder="Title">
-        </div>
-    </div>
-    <div>
-        <label for="content">Content</label>
-        <div>
-            <textarea type="text" required cols="30" rows="10"
-                      [(ngModel)]="article.content" name="content" placeholder="Content">
-                </textarea>
-        </div>
-    </div>
-    <div>
-        <input type="submit" value="Update">
-    </div>
-    <strong>{{errorMessage}}</strong>
-</form>
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Nurse'" [routerLink]="['/emergency/check']">Emergency Check</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
+        </li>
+    </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container-fluid">
+  <h2>New Daily Motivational Tip</h2>
+  <form (ngSubmit)="update()" novalidate>
+
+      <div class="form-group">
+        <label >Title</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.title" name="courseCode">
+      </div>
+
+      <div class="form-group">
+        <label >Content</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.content" name="courseName">
+      </div>
+
+      <div class="form-group">
+        <label >Url</label>
+        <input type="text" required class="form-control" [(ngModel)]="article.url" name="secton">
+      </div>
+
+      <div>
+          <input type="submit" class="btn btn-primary">
+      </div>
+      <strong id="error">{{errorMessage}}</strong>
+    </form>
+</main>

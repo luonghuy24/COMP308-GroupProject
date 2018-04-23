@@ -12,7 +12,7 @@ module.exports = function () {
 
     require('../app/models/student.server.model');
     // Load the 'Article' model
-    require('../app/models/article.server.model');
+    require('../app/models/tips.server.model');
     require('../app/models/record.server.model');
     require('../app/models/emergency.server.model');
 

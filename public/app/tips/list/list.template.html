@@ -16,8 +16,8 @@
             <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
         </li>
 
-        <li class="nav-item" *ngIf="user">>
-            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/tips']">Daily Motivation</a>
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
         </li>
     </ul>
 
@@ -28,20 +28,26 @@
 </div>
 
 <main role="main" class="container-fluid">
-  <h1 class="mt-5">
+  <h4 class="mt-5">
     <i class="fas fa-hand-holding-heart mr-1"></i>
     Daily Motivational Tip
-  </h1>
+  </h4>
 
-<!-- <ul>
-    <li *ngFor="let article of articles">
-        <a [routerLink]="['/articles', article._id]">{{article.title}}</a>
-        <br>
-        <small>{{article.created}}/{{article.creator.fullName}}</small>
-        <p>{{article.content}}</p>
-    </li>
-</ul> -->
-<!-- <div *ngIf="articles && articles.length === 0"> -->
-  <a [routerLink]="['/tips/create']" class="btn btn-primary mt-3 text-white">Create new tip</a>
-<!-- </div> -->
+  <div *ngIf="user && user.type == 'Nurse'">
+    <a [routerLink]="['/tips/create']" class="btn btn-primary mt-3 text-white">Create new tip</a>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-6" *ngFor="let article of articles">
+      <div class="card bg-light mb-3" >
+        <div class="card-header"><a [routerLink]="['/tips', article._id]">{{article.title}}</a></div>
+        <div class="card-body">
+          <!-- <h5 class="card-title"></h5> -->
+          <p class="card-text">{{article.content}}</p>
+          <p class="card-text"><a href={{article.url}}>{{article.url}}</a></p>
+          <h6 class="card-subtitle mb-2 text-muted">Posted on {{article.created}} by {{article.creator.fullName}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>

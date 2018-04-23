@@ -1,10 +1,40 @@
-﻿<img src="assets/logo.png">
+﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
+    <ul class="nav">
+        <li class="nav-item">
+            <h5 class="my-0 mr-md-auto font-weight-bold">
+                <a class="nav-link text-dark px-0" [routerLink]="['/']">
+                    COMP308
+                </a>
+            </h5>
+        </li>
 
-<section *ngIf="article && article.creator">
-    <h1>11{{article.title}}</h1>
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Nurse'" [routerLink]="['/emergency/check']">Emergency Check</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
+        </li>
+    </ul>
+
+  <div *ngIf="user">
+    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+  </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <section *ngIf="article && article.creator">
+    <h1>{{article.title}}</h1>
+    <p>{{article.content}}</p>
+    <p><a href={{article.url}}>{{article.url}}</a></p>
     <div *ngIf="allowEdit">
-        <a [routerLink]="['/articles', article._id, 'edit']">edit</a>
-        <button (click)="delete()">delete</button>
+        <a [routerLink]="['/tips', article._id, 'edit']" class="btn btn-primary mr-2">edit</a>
+        <button (click)="delete()" class="btn btn-danger">delete</button>
     </div>
     <small>
         <em>
@@ -14,5 +44,6 @@ fullName
             }}
         </em>
     </small>
-    <p>{{article.content}}</p>
 </section>
+</main>
+

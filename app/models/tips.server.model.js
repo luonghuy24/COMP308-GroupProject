@@ -15,9 +15,10 @@ const ArticleSchema = new Schema({
         type: String, default: '',
         trim: true
     },
+    url: String,
     creator: {
         type: Schema.ObjectId,
         ref: 'User'
     }
 });
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Tip', ArticleSchema);

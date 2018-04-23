@@ -16,8 +16,8 @@
             <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
         </li>
 
-        <li class="nav-item" *ngIf="user">>
-            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/tips']">Daily Motivation</a>
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
         </li>
     </ul>
 
@@ -33,17 +33,17 @@
 
       <div class="form-group">
         <label >Title</label>
-        <input type="text" required class="form-control" [(ngModel)]="article.courseCode" name="courseCode">
+        <input type="text" required class="form-control" [(ngModel)]="article.title" name="courseCode">
       </div>
 
       <div class="form-group">
         <label >Content</label>
-        <input type="text" required class="form-control" [(ngModel)]="article.courseName" name="courseName">
+        <input type="text" required class="form-control" [(ngModel)]="article.content" name="courseName">
       </div>
 
       <div class="form-group">
         <label >Url</label>
-        <input type="text" required class="form-control" [(ngModel)]="article.section" name="secton">
+        <input type="text" required class="form-control" [(ngModel)]="article.url" name="secton">
       </div>
 
       <div>
@@ -51,5 +51,4 @@
       </div>
       <strong id="error">{{errorMessage}}</strong>
     </form>
-
-<h1>New Article</h1>
+</main>

@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { TipsService } from '../tips.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
 @Component({
     selector: 'tips',
     templateUrl: 'app/tips/list/list.template.html'
@@ -7,11 +8,13 @@ import { TipsService } from '../tips.service';
 export class ListComponent {
     articles: any;
     errorMessage: string;
-    constructor(private _articlesService: TipsService) { }
+    user: any;
+    constructor(private _articlesService: TipsService,
+                private _authenticationService: AuthenticationService) { }
     ngOnInit() {
-        // this._articlesService.list().subscribe(articles => this.articles
-        //     = articles);
-        console.log('AAAAAA');
+        this.user = this._authenticationService.user;
+        this._articlesService.list().subscribe(articles => this.articles
+            = articles);
     }
 }
 

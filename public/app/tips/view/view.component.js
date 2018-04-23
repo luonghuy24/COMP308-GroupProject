@@ -48,7 +48,7 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
                             _this.article = article;
                             _this.allowEdit = (_this.user && _this.user._id === _this.
                                 article.creator._id);
-                        }, function (error) { return _this._router.navigate(['/articles']); });
+                        }, function (error) { return _this._router.navigate(['/tips']); });
                     });
                 };
                 //
@@ -59,7 +59,7 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
                 ViewComponent.prototype.delete = function () {
                     var _this = this;
                     this._articlesService.delete(this.article._id).
-                        subscribe(function (deletedArticle) { return _this._router.navigate(['/articles']); }, function (error) { return _this.errorMessage = error; });
+                        subscribe(function (deletedArticle) { return _this._router.navigate(['/tips']); }, function (error) { return _this.errorMessage = error; });
                 };
                 ViewComponent = __decorate([
                     core_1.Component({

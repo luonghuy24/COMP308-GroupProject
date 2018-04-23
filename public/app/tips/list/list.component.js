@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../tips.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../tips.service', '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../tips.service'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tips_service_1;
+    var core_1, tips_service_1, authentication_service_1;
     var ListComponent;
     return {
         setters:[
@@ -19,23 +19,28 @@ System.register(['@angular/core', '../tips.service'], function(exports_1, contex
             },
             function (tips_service_1_1) {
                 tips_service_1 = tips_service_1_1;
+            },
+            function (authentication_service_1_1) {
+                authentication_service_1 = authentication_service_1_1;
             }],
         execute: function() {
             ListComponent = (function () {
-                function ListComponent(_articlesService) {
+                function ListComponent(_articlesService, _authenticationService) {
                     this._articlesService = _articlesService;
+                    this._authenticationService = _authenticationService;
                 }
                 ListComponent.prototype.ngOnInit = function () {
-                    // this._articlesService.list().subscribe(articles => this.articles
-                    //     = articles);
-                    console.log('AAAAAA');
+                    var _this = this;
+                    this.user = this._authenticationService.user;
+                    this._articlesService.list().subscribe(function (articles) { return _this.articles
+                        = articles; });
                 };
                 ListComponent = __decorate([
                     core_1.Component({
                         selector: 'tips',
                         templateUrl: 'app/tips/list/list.template.html'
                     }), 
-                    __metadata('design:paramtypes', [tips_service_1.TipsService])
+                    __metadata('design:paramtypes', [tips_service_1.TipsService, authentication_service_1.AuthenticationService])
                 ], ListComponent);
                 return ListComponent;
             }());

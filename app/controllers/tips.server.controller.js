@@ -1,5 +1,5 @@
 ﻿const mongoose = require('mongoose');
-const Article = mongoose.model('Article');
+const Article = mongoose.model('Tip');
 //
 function getErrorMessage(err) {
     if (err.errors) {
