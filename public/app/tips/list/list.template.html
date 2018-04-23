@@ -13,7 +13,7 @@
         </li>
 
         <li class="nav-item" *ngIf="user">
-            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency/registration']">Emergency Registration</a>
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency']">Emergency Registration</a>
         </li>
 
         <li class="nav-item" *ngIf="user">
@@ -21,10 +21,11 @@
         </li>
     </ul>
 
-  <div *ngIf="user">
-    <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
-    <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
-  </div>
+
+    <div *ngIf="user">
+        <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>
+        <a class="btn btn-outline-primary" href="/api/auth/signout">Sign Out</a>
+    </div>
 </div>
 
 <main role="main" class="container-fluid">

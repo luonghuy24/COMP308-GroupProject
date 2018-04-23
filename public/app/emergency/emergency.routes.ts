@@ -1,15 +1,17 @@
 ﻿import { Routes } from '@angular/router';
-import { UsersComponent } from './emergency.component';
+import { EmergencyComponent } from './emergency.component';
+import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
-import { ListCoursesComponent } from './listemergency/listcourses.component';
+import { EditComponent } from './edit/edit.component';
 
-export const UsersRoutes: Routes = [{
+export const EmergencyRoutes: Routes = [{
     path: 'emergency',
-    component: UsersComponent,
+    component: EmergencyComponent,
     children: [
         { path: '', component: ListComponent },
-        { path: ':articleId', component: ViewComponent },
-        { path: ':studentId/records', component: ListCoursesComponent}
+        { path: 'create', component: CreateComponent },
+        { path: ':articleId', component: ViewComponent }
+        
     ],
 }];

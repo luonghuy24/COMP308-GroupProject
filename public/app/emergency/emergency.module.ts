@@ -2,23 +2,25 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { UsersRoutes } from './emergency.routes';
-import { UsersComponent } from './emergency.component';
+import { EmergencyRoutes } from './emergency.routes';
+import { EmergencyComponent } from './emergency.component';
 import { ListComponent } from './list/list.component';
+import { CreateComponent } from './create/create.component';
 import { ViewComponent } from './view/view.component';
-import { ListCoursesComponent } from './listemergency/listcourses.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule.forChild(UsersRoutes),
+        RouterModule.forChild(EmergencyRoutes),
     ],
     declarations: [
-        UsersComponent,
+        EmergencyComponent,
         ListComponent,
         ViewComponent,
-        ListCoursesComponent
+        CreateComponent,
+        EditComponent
     ]
 })
-export class UsersModule { }
+export class EmergencyModule { }

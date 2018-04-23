@@ -1,6 +1,5 @@
-System.register(['@angular/core', '../users.service', '@angular/router', '../../authentication/authentication.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "../users.service", "@angular/router", "../../authentication/authentication.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '../users.service', '@angular/router', '../../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, users_service_1, router_1, authentication_service_1;
-    var ListCoursesComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, users_service_1, router_1, authentication_service_1, ListCoursesComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -25,9 +24,10 @@ System.register(['@angular/core', '../users.service', '@angular/router', '../../
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }],
-        execute: function() {
-            ListCoursesComponent = (function () {
+            }
+        ],
+        execute: function () {
+            ListCoursesComponent = /** @class */ (function () {
                 function ListCoursesComponent(_articlesService, _authenticationService, _router, _route) {
                     this._articlesService = _articlesService;
                     this._authenticationService = _authenticationService;
@@ -60,13 +60,16 @@ System.register(['@angular/core', '../users.service', '@angular/router', '../../
                     core_1.Component({
                         selector: 'list',
                         templateUrl: 'app/users/listcourses/listcourses.template.html'
-                    }), 
-                    __metadata('design:paramtypes', [users_service_1.UsersService, authentication_service_1.AuthenticationService, router_1.Router, router_1.ActivatedRoute])
+                    }),
+                    __metadata("design:paramtypes", [users_service_1.UsersService,
+                        authentication_service_1.AuthenticationService,
+                        router_1.Router,
+                        router_1.ActivatedRoute])
                 ], ListCoursesComponent);
                 return ListCoursesComponent;
             }());
             exports_1("ListCoursesComponent", ListCoursesComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=listcourses.component.js.map

@@ -11,6 +11,7 @@ import { TipsModule } from './tips/tips.module';
 // import { CoursesModule } from './courses/courses.module';
 import { RecordsModule } from './records/records.module';
 import { UsersModule } from './users/users.module';
+import { EmergencyModule } from './emergency/emergency.module';
 
 @NgModule({
     imports: [
@@ -21,6 +22,7 @@ import { UsersModule } from './users/users.module';
         UsersModule,
         RecordsModule,
         TipsModule,
+        EmergencyModule,
         RouterModule.forRoot(AppRoutes)
     ],
     declarations: [

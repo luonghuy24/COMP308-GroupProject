@@ -1,19 +1,15 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './tips/tips.module', './records/records.module', './users/users.module'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/router", "@angular/http", "./app.component", "./app.routes", "./home/home.module", "./authentication/authentication.service", "./authentication/authentication.module", "./tips/tips.module", "./records/records.module", "./users/users.module", "./emergency/emergency.module"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, tips_module_1, records_module_1, users_module_1;
-    var AppModule;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, tips_module_1, records_module_1, users_module_1, emergency_module_1, AppModule;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -49,9 +45,13 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
             },
             function (users_module_1_1) {
                 users_module_1 = users_module_1_1;
-            }],
-        execute: function() {
-            AppModule = (function () {
+            },
+            function (emergency_module_1_1) {
+                emergency_module_1 = emergency_module_1_1;
+            }
+        ],
+        execute: function () {
+            AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
                 AppModule = __decorate([
@@ -64,6 +64,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
                             users_module_1.UsersModule,
                             records_module_1.RecordsModule,
                             tips_module_1.TipsModule,
+                            emergency_module_1.EmergencyModule,
                             router_1.RouterModule.forRoot(app_routes_1.AppRoutes)
                         ],
                         declarations: [
@@ -73,13 +74,12 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/router'
                             authentication_service_1.AuthenticationService
                         ],
                         bootstrap: [app_component_1.AppComponent]
-                    }), 
-                    __metadata('design:paramtypes', [])
+                    })
                 ], AppModule);
                 return AppModule;
             }());
             exports_1("AppModule", AppModule);
         }
-    }
+    };
 });
 //# sourceMappingURL=app.module.js.map

@@ -1,10 +1,9 @@
-System.register(['./tips.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
+System.register(["./tips.component", "./create/create.component", "./list/list.component", "./view/view.component", "./edit/edit.component"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var tips_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
-    var TipsRoutes;
+    var tips_component_1, create_component_1, list_component_1, view_component_1, edit_component_1, TipsRoutes;
     return {
-        setters:[
+        setters: [
             function (tips_component_1_1) {
                 tips_component_1 = tips_component_1_1;
             },
@@ -19,8 +18,9 @@ System.register(['./tips.component', './create/create.component', './list/list.c
             },
             function (edit_component_1_1) {
                 edit_component_1 = edit_component_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("TipsRoutes", TipsRoutes = [{
                     path: 'tips',
                     component: tips_component_1.TipsComponent,
@@ -32,6 +32,6 @@ System.register(['./tips.component', './create/create.component', './list/list.c
                     ],
                 }]);
         }
-    }
+    };
 });
 //# sourceMappingURL=tips.routes.js.map

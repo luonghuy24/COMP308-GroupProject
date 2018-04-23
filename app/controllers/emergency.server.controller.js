@@ -1,5 +1,5 @@
 ﻿const mongoose = require('mongoose');
-const Record = mongoose.model('Record');
+//const Record = mongoose.model('Record');
 const Emergency = require('mongoose').model('Emergency');
 //
 function getErrorMessage(err) {
@@ -14,7 +14,7 @@ function getErrorMessage(err) {
 };
 //
 exports.create = function (req, res) {
-    const course = new Record(req.body);
+    const course = new Emergency(req.body);
 
     course.creator = req.user;
 
@@ -30,7 +30,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Record.find().sort('-created').populate('creator', 'firstName lastName fullName')
+    Emergency.find().sort('-created').populate('creator', 'firstName lastName fullName')
                                     .populate('patient', 'firstName lastName fullName')
                                     .exec((err, course) => {
         if (err) {
@@ -44,7 +44,7 @@ exports.list = function (req, res) {
 };
 //
 exports.courseByID = function (req, res, next, id) {
-    Record.findById(id).populate('creator', 'firstName lastName fullName')
+    Emergency.findById(id).populate('creator', 'firstName lastName fullName')
                         .populate('patient', 'firstName lastName fullName')
                         .exec((err, record) => {if (err) return next(err);
     if (!record) return next(new Error('Failed to load record '
@@ -98,8 +98,8 @@ exports.hasAuthorization = function (req, res, next) {
     next();
 };
 
-exports.getRecords = function(req, res){
-    Record.find({creator: req.params.userId}).sort('-created')
+exports.getEmergency = function(req, res){
+    Emergency.find({creator: req.params.userId}).sort('-created')
         .populate('creator', 'firstName lastName fullName')
         .populate('patient', 'firstName lastName fullName')
         .exec((err, courses) => {

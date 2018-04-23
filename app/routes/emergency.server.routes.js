@@ -12,6 +12,6 @@ module.exports = function (app) {
         .delete(users.requiresLogin, emergency.hasAuthorization, emergency.
             delete);
     //app.param('courseId', records.courseByID);
-    app.route('/api/emergency/:userId/records')
-        .get(emergency.getRecords)
+    app.route('/api/emergency/:userId')
+        .get(emergency.getEmergency)
 };

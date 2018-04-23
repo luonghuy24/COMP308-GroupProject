@@ -1,8 +1,8 @@
 ﻿import { Component } from '@angular/core';
-import { UsersService } from './emergency.service';
+import { EmergencyService } from './emergency.service';
 @Component({
     selector: 'articles',
     template: '<router-outlet></router-outlet>',
-    providers: [UsersService]
+    providers: [EmergencyService]
 })
-export class UsersComponent { }
+export class EmergencyComponent { }
