@@ -1,9 +1,10 @@
-System.register(["./users.component", "./list/list.component", "./view/view.component", "./check/check.component", "./listcourses/listcourses.component"], function (exports_1, context_1) {
+System.register(['./users.component', './list/list.component', './view/view.component', './check/check.component', './listcourses/listcourses.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var users_component_1, list_component_1, view_component_1, check_component_1, listcourses_component_1, UsersRoutes;
+    var users_component_1, list_component_1, view_component_1, check_component_1, listcourses_component_1;
+    var UsersRoutes;
     return {
-        setters: [
+        setters:[
             function (users_component_1_1) {
                 users_component_1 = users_component_1_1;
             },
@@ -18,9 +19,8 @@ System.register(["./users.component", "./list/list.component", "./view/view.comp
             },
             function (listcourses_component_1_1) {
                 listcourses_component_1 = listcourses_component_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             exports_1("UsersRoutes", UsersRoutes = [{
                     path: 'users',
                     component: users_component_1.UsersComponent,
@@ -32,6 +32,6 @@ System.register(["./users.component", "./list/list.component", "./view/view.comp
                     ],
                 }]);
         }
-    };
+    }
 });
 //# sourceMappingURL=users.routes.js.map

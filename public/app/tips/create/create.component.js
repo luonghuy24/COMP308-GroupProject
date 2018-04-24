@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/router", "../tips.service"], function (exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../tips.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/router", "../tips.service"], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, tips_service_1, CreateComponent;
+    var core_1, router_1, tips_service_1;
+    var CreateComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,10 +22,9 @@ System.register(["@angular/core", "@angular/router", "../tips.service"], functio
             },
             function (tips_service_1_1) {
                 tips_service_1 = tips_service_1_1;
-            }
-        ],
-        execute: function () {
-            CreateComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            CreateComponent = (function () {
                 function CreateComponent(_router, _articlesService) {
                     this._router = _router;
                     this._articlesService = _articlesService;
@@ -41,14 +41,13 @@ System.register(["@angular/core", "@angular/router", "../tips.service"], functio
                     core_1.Component({
                         selector: 'create',
                         templateUrl: 'app/tips/create/create.template.html'
-                    }),
-                    __metadata("design:paramtypes", [router_1.Router,
-                        tips_service_1.TipsService])
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, tips_service_1.TipsService])
                 ], CreateComponent);
                 return CreateComponent;
             }());
             exports_1("CreateComponent", CreateComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=create.component.js.map

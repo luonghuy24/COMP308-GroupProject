@@ -1,9 +1,10 @@
-System.register(["./emergency.component", "./create/create.component", "./list/list.component", "./view/view.component", "./edit/edit.component"], function (exports_1, context_1) {
+System.register(['./emergency.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var emergency_component_1, create_component_1, list_component_1, view_component_1, edit_component_1, EmergencyRoutes;
+    var emergency_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
+    var EmergencyRoutes;
     return {
-        setters: [
+        setters:[
             function (emergency_component_1_1) {
                 emergency_component_1 = emergency_component_1_1;
             },
@@ -18,9 +19,8 @@ System.register(["./emergency.component", "./create/create.component", "./list/l
             },
             function (edit_component_1_1) {
                 edit_component_1 = edit_component_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             exports_1("EmergencyRoutes", EmergencyRoutes = [{
                     path: 'emergency',
                     component: emergency_component_1.EmergencyComponent,
@@ -32,6 +32,6 @@ System.register(["./emergency.component", "./create/create.component", "./list/l
                     ],
                 }]);
         }
-    };
+    }
 });
 //# sourceMappingURL=emergency.routes.js.map
