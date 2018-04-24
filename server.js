@@ -16,7 +16,7 @@ const app = configureExpress();
 const passport = configurePassport();
 
 // Use the Express application instance to listen to the '3000' port
-app.listen(8080, '198.199.65.105');
+app.listen(8080, '127.0.0.1');
 
 // Log the server status to the console
 console.log('Server running at http://localhost:3000/');
