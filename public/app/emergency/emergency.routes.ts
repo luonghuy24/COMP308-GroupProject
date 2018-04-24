@@ -11,7 +11,8 @@ export const EmergencyRoutes: Routes = [{
     children: [
         { path: '', component: ListComponent },
         { path: 'create', component: CreateComponent },
-        { path: ':articleId', component: ViewComponent }
+        { path: 'edit/:articleId', component: ViewComponent },
+        { path: 'edit/:articleId/edit', component: EditComponent }
         
     ],
 }];

@@ -29,28 +29,13 @@
 </div>
 
 <main role="main" class="container-fluid">
-    <section *ngIf="article">
-        <h2>{{article.fullName}}</h2>
-        <dl>
-          <dt>First Name</dt>
-          <dd>{{article.firstName}}</dd>
-          <dt>Last Name</dt>
-          <dd>{{article.lasttName}}</dd>
-          <dt>Email</dt>
-          <dd>{{article.email}}</dd>
-          <dt>Student Number</dt>
-          <dd>{{article.studentNumber}}</dd>
-          <dt>Address</dt>
-          <dd>{{article.address}}</dd>
-          <dt>City</dt>
-          <dd>{{article.city}}</dd>
-          <dt>Phone Number</dt>
-          <dd>{{article.phoneNumber}}</dd>
-          <dt>Program</dt>
-          <dd>{{article.program}}</dd>
-          <dt>Username</dt>
-          <dd>{{article.username}}</dd>
-      </dl>
-      <a class="btn btn-primary mr-2" [routerLink]="['courses']">See This Student's Courses</a>
+    <section *ngIf="article && article.creator">
+        <h1>{{article.title}}</h1>
+        <p>{{article.message}}</p>
+        <p>{{article.type}}</p>
+        <div *ngIf="allowEdit">
+            <a [routerLink]="['/emergency/edit', article._id, 'edit']" class="btn btn-primary mr-2">edit</a>
+            <button (click)="delete()" class="btn btn-danger">delete</button>
+        </div>
     </section>
 </main>

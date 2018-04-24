@@ -43,7 +43,7 @@ exports.list = function (req, res) {
     });
 };
 //
-exports.courseByID = function (req, res, next, id) {
+exports.emergencyByID = function (req, res, next, id) {
     Emergency.findById(id).populate('creator', 'firstName lastName fullName')
                         .populate('patient', 'firstName lastName fullName')
                         .exec((err, record) => {if (err) return next(err);
@@ -60,10 +60,9 @@ exports.read = function (req, res) {
 //
 exports.update = function (req, res) {
     const record = req.record;
-    record.bodyTemperature = req.body.bodyTemperature;
-    record.pulseRate = req.body.pulseRate;
-    record.bloodPressure    = req.body.bloodPressure;
-    record.respiratoryRate   = req.body.respiratoryRate;
+    record.title = req.body.title;
+    record.message = req.body.message;
+    record.type = req.body.type;
     record.save((err) => {
         if (err) {
             return res.status(400).send({
@@ -100,8 +99,7 @@ exports.hasAuthorization = function (req, res, next) {
 
 exports.getEmergency = function(req, res){
     Emergency.find({creator: req.params.userId}).sort('-created')
-        .populate('creator', 'firstName lastName fullName')
-        .populate('patient', 'firstName lastName fullName')
+        .populate('creator', 'message type created')
         .exec((err, courses) => {
         if (err) {
             return res.status(400).send({
@@ -111,4 +109,36 @@ exports.getEmergency = function(req, res){
             res.status(200).json(courses);
         }
     })
+}
+exports.getRecords = function (req, res, next, id) {
+
+    console.log(req.params);
+
+    Emergency.find({ creator: id }).sort('-created')
+        .populate('creator', 'title message type created')
+        .exec((err, courses) => {
+            if (err) {
+                return res.status(400).send({
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.status(200).json(courses);
+            }
+        })
+}
+exports.getRecordsEmerg = function (req, res, next, id) {
+
+    console.log(req.params);
+
+    Emergency.findById(id).sort('-created')
+        .populate('creator', 'title message type created')
+        .exec((err, courses) => {
+            if (err) {
+                return res.status(400).send({
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.status(200).json(courses);
+            }
+        })
 }

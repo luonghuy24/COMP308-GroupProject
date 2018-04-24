@@ -14,12 +14,9 @@ export class ListComponent {
                 private _authenticationService: AuthenticationService,) { }
     ngOnInit() {
       this.user = this._authenticationService.user
-       this._articlesService.list().subscribe(articles => this.articles
+      this._articlesService.list(this.user._id).subscribe(articles => this.articles
             = articles);
     }
 
-    searchStudents() {
-      this._articlesService.search(this.search).subscribe(articles => this.articles = articles);
-    }
 }
 

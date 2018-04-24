@@ -30,6 +30,7 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 function EmergencyService(_http) {
                     this._http = _http;
                     this._baseURL = 'api/emergency';
+                    this._baseURL2 = 'api/emergency/edit';
                 }
                 EmergencyService.prototype.create = function (article) {
                     return this._http
@@ -39,13 +40,13 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 };
                 EmergencyService.prototype.read = function (articleId) {
                     return this._http
-                        .get(this._baseURL + "/" + articleId)
+                        .get(this._baseURL2 + "/" + articleId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 EmergencyService.prototype.update = function (article) {
                     return this._http
-                        .put(this._baseURL + "/" + article._id, article).map(function (res) { return res.json(); })
+                        .put(this._baseURL2 + "/" + article._id, article).map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 EmergencyService.prototype.delete = function (articleId) {
@@ -54,9 +55,9 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                EmergencyService.prototype.list = function () {
+                EmergencyService.prototype.list = function (articleId) {
                     return this._http
-                        .get(this._baseURL)
+                        .get(this._baseURL + "/" + articleId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

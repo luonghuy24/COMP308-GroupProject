@@ -5,6 +5,7 @@ const EmergencySchema = new Schema({
         type: Date,
         default: Date.now
     },
+    title: String,
     message: String,
     type: String,
     creator: {

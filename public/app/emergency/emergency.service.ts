@@ -5,6 +5,7 @@ import {Http, Headers, Request, RequestMethod, Response} from '@angular/http';
 @Injectable()
 export class EmergencyService {
     private _baseURL = 'api/emergency';
+    private _baseURL2 = 'api/emergency/edit';
     constructor(private _http: Http) { }
     create(article: any): Observable<any> {
         return this._http
@@ -15,12 +16,12 @@ export class EmergencyService {
     }
     read(articleId: string): Observable<any> {
         return this._http
-            .get(`${this._baseURL}/${articleId}`)
+            .get(`${this._baseURL2}/${articleId}`)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     } update(article: any): Observable<any> {
         return this._http
-            .put(`${this._baseURL}/${article._id}`, article).map((res: Response) => res.json())
+            .put(`${this._baseURL2}/${article._id}`, article).map((res: Response) => res.json())
             .catch(this.handleError);
     }
     delete(articleId: any): Observable<any> {
@@ -29,9 +30,9 @@ export class EmergencyService {
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
-    list(): Observable<any> {
+    list(articleId: any): Observable<any> {
         return this._http
-            .get(this._baseURL)
+            .get(`${this._baseURL}/${articleId}`)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
