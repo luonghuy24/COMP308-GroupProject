@@ -8,6 +8,7 @@ const EmergencySchema = new Schema({
     title: String,
     message: String,
     type: String,
+    username: String,
     creator: {
         type: Schema.ObjectId,
         ref: 'User'

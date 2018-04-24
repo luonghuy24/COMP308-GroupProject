@@ -32,8 +32,14 @@ System.register(["@angular/core", "../emergency.service", "../../authentication/
                 ListComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.user = this._authenticationService.user;
-                    this._articlesService.list(this.user._id).subscribe(function (articles) { return _this.articles
-                        = articles; });
+                    if (this.user.type != 'Nurse') {
+                        this._articlesService.list(this.user._id).subscribe(function (articles) { return _this.articles
+                            = articles; });
+                    }
+                    else {
+                        this._articlesService.list2().subscribe(function (articles) { return _this.articles
+                            = articles; });
+                    }
                 };
                 ListComponent = __decorate([
                     core_1.Component({

@@ -41,7 +41,7 @@ export class ViewComponent {
     //
     delete() {
         this._articlesService.delete(this.article._id).
-            subscribe(deletedArticle => this._router.navigate(['/emergency', deletedArticle._id]),
+            subscribe(deletedArticle => this._router.navigate(['/emergency']),
             error => this.errorMessage = error);
     }
 }

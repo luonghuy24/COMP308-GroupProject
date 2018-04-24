@@ -1,19 +1,24 @@
 ﻿<div class="d-flex align-items-center justify-content-between py-2 px-3 mb-3 bg-white border-bottom box-shadow">
-  <ul class="nav">
-    <li class="nav-item">
-      <h5 class="my-0 mr-md-auto font-weight-bold">
-        <a class="nav-link text-dark px-0" [routerLink]="['/']">
-          COMP308
-        </a>
-      </h5>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark px-3" [routerLink]="['/users']">List of Patient</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-dark px-3" [routerLink]="['/records']">Patient Records</a>
-    </li>
-  </ul>
+    <ul class="nav">
+        <li class="nav-item">
+            <h5 class="my-0 mr-md-auto font-weight-bold">
+                <a class="nav-link text-dark px-0" [routerLink]="['/']">
+                    COMP308
+                </a>
+            </h5>
+        </li>
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Nurse'" [routerLink]="['/emergency/check']">Emergency Check</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" *ngIf="user.type == 'Patient'" [routerLink]="['/emergency']">Emergency Registration</a>
+        </li>
+
+        <li class="nav-item" *ngIf="user">
+            <a class="nav-link text-dark px-3" [routerLink]="['/tips']">Daily Motivation</a>
+        </li>
+    </ul>
 
   <div *ngIf="user">
     <a class="btn text-dark" href="#">Hello <strong>{{user.firstName}}</strong></a>

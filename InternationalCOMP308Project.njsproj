@@ -64,9 +64,6 @@
     <Compile Include="public\app\authentication\signin\signin.component.js" />
     <Compile Include="public\app\authentication\signup\signup.component.js" />
     <Compile Include="public\app\bootstrap.js" />
-    <Compile Include="public\app\home\home.component.js" />
-    <Compile Include="public\app\home\home.module.js" />
-    <Compile Include="public\app\home\home.routes.js" />
     <Compile Include="public\systemjs.config.js" />
     <Compile Include="server.js" />
     <Content Include="app\views\index.ejs" />
@@ -92,9 +89,6 @@
     <Content Include="public\app\authentication\signup\signup.component.js.map" />
     <Content Include="public\app\authentication\signup\signup.template.html" />
     <Content Include="public\app\bootstrap.js.map" />
-    <Content Include="public\app\home\home.component.js.map" />
-    <Content Include="public\app\home\home.module.js.map" />
-    <Content Include="public\app\home\home.routes.js.map" />
     <Content Include="public\app\home\home.template.html" />
     <Content Include="README.md" />
     <Content Include="tsconfig.json" />

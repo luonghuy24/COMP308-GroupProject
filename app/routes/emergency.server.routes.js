@@ -3,7 +3,7 @@ const emergency = require('../../app/controllers/emergency.server.controller');
 //
 module.exports = function (app) {
     app.route('/api/emergency')
-        .get(emergency.list)
+        .get(emergency.list, emergency.listByUser)
         .post(users.requiresLogin, emergency.create);
     app.
         route('/api/emergency/:Id')

@@ -1,6 +1,8 @@
 ﻿const mongoose = require('mongoose');
 //const Record = mongoose.model('Record');
+const User = require('mongoose').model('User');
 const Emergency = require('mongoose').model('Emergency');
+var idCreator;
 //
 function getErrorMessage(err) {
     if (err.errors) {
@@ -29,9 +31,8 @@ exports.create = function (req, res) {
     });
 };
 //
-exports.list = function (req, res) {
-    Emergency.find().sort('-created').populate('creator', 'firstName lastName fullName')
-                                    .populate('patient', 'firstName lastName fullName')
+exports.list = function (req, res,next) {
+    Emergency.find().sort('-created').populate('creator', 'title message type created')                                  
                                     .exec((err, courses) => {
         if (err) {
             return res.status(400).send({
@@ -40,7 +41,25 @@ exports.list = function (req, res) {
         } else {
             res.status(200).json(courses);
         }
+        //idCreator = JSON.parse(JSON.stringify(courses));
+        //next();
     });
+};
+
+exports.listByUser = function (req, res) {
+    var id = idCreator[0].creator;
+    User.findById(id).sort('-created').populate('username', 'firstName username')
+        .exec((err, courses) => {
+            if (err) {
+                return res.status(400).send({
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.status(200).json(courses);
+            }
+            
+
+        });
 };
 //
 exports.emergencyByID = function (req, res, next, id) {

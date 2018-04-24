@@ -50,7 +50,7 @@ System.register(["@angular/core", "@angular/router", "../emergency.service", "..
                 };
                 EditComponent.prototype.update = function () {
                     var _this = this;
-                    this._articlesService.update(this.article).subscribe(function (savedArticle) { return _this._router.navigate(['/emergency', savedArticle._id]); }, function (error) { return _this.errorMessage =
+                    this._articlesService.update(this.article).subscribe(function (savedArticle) { return _this._router.navigate(['/emergency']); }, function (error) { return _this.errorMessage =
                         error; });
                 };
                 EditComponent = __decorate([

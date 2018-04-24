@@ -13,9 +13,15 @@ export class ListComponent {
     constructor(private _articlesService: EmergencyService,
                 private _authenticationService: AuthenticationService,) { }
     ngOnInit() {
-      this.user = this._authenticationService.user
-      this._articlesService.list(this.user._id).subscribe(articles => this.articles
-            = articles);
+        this.user = this._authenticationService.user
+        if (this.user.type != 'Nurse') {
+            this._articlesService.list(this.user._id).subscribe(articles => this.articles
+                = articles);
+        } else {
+            this._articlesService.list2().subscribe(articles => this.articles
+                = articles);
+        }
+     
     }
 
 }
