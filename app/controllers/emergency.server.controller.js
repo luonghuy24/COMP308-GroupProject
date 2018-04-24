@@ -14,17 +14,17 @@ function getErrorMessage(err) {
 };
 //
 exports.create = function (req, res) {
-    const course = new Emergency(req.body);
+    const courses = new Emergency(req.body);
 
-    course.creator = req.user;
+    courses.creator = req.user;
 
-    course.save((err) => {
+    courses.save((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(course);
+            res.status(200).json(courses);
         }
     });
 };
@@ -32,13 +32,13 @@ exports.create = function (req, res) {
 exports.list = function (req, res) {
     Emergency.find().sort('-created').populate('creator', 'firstName lastName fullName')
                                     .populate('patient', 'firstName lastName fullName')
-                                    .exec((err, course) => {
+                                    .exec((err, courses) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(course);
+            res.status(200).json(courses);
         }
     });
 };
@@ -55,11 +55,11 @@ exports.emergencyByID = function (req, res, next, id) {
 };
 //
 exports.read = function (req, res) {
-    res.status(200).json(req.record);
+    res.status(200).json(req.courses);
 };
 //
 exports.update = function (req, res) {
-    const record = req.record;
+    const record = req.courses;
     record.title = req.body.title;
     record.message = req.body.message;
     record.type = req.body.type;
@@ -75,7 +75,7 @@ exports.update = function (req, res) {
 };
 //
 exports.delete = function (req, res) {
-    const record = req.record;
+    const record = req.courses;
     record.remove((err) => {
         if (err) {
             return res.status(400).send({
@@ -89,7 +89,7 @@ exports.delete = function (req, res) {
 //The hasAuthorization() middleware uses the req.article and req.user objects
 //to verify that the current user is the creator of the current article
 exports.hasAuthorization = function (req, res, next) {
-    if (req.record.creator.id !== req.user.id) {
+    if (req.courses.creator.id !== req.user.id) {
         return res.status(403).send({
             message: 'User is not authorized'
         });
@@ -127,6 +127,21 @@ exports.getRecords = function (req, res, next, id) {
         })
 }
 exports.getRecordsEmerg = function (req, res, next, id) {
+
+    console.log(req.params);
+
+    Emergency.findById(id).sort('-created')
+        .populate('creator', 'title message type created')
+        .exec((err, courses) => {
+            if (err) return next(err);
+            if (!courses) return next(new Error('Failed to load article '
+                + id));
+            req.courses = courses;
+            next();
+        })
+}
+
+exports.getRecordsEmerg2 = function (req, res, next, id) {
 
     console.log(req.params);
 

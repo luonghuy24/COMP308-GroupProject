@@ -59,7 +59,7 @@ System.register(["@angular/core", "@angular/router", "../../authentication/authe
                 ViewComponent.prototype.delete = function () {
                     var _this = this;
                     this._articlesService.delete(this.article._id).
-                        subscribe(function (deletedArticle) { return _this._router.navigate(['/emergency']); }, function (error) { return _this.errorMessage = error; });
+                        subscribe(function (deletedArticle) { return _this._router.navigate(['/emergency', deletedArticle._id]); }, function (error) { return _this.errorMessage = error; });
                 };
                 ViewComponent = __decorate([
                     core_1.Component({

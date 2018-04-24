@@ -29,7 +29,7 @@ export class EditComponent {
         this.paramsObserver.unsubscribe();
     }
     update() {
-        this._articlesService.update(this.article).subscribe(savedArticle => this._router.navigate(['/emergency/edit', savedArticle._id+'/edit']),
+        this._articlesService.update(this.article).subscribe(savedArticle => this._router.navigate(['/emergency', savedArticle._id]),
             error => this.errorMessage =
                 error);
     }

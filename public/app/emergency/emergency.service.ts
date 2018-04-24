@@ -12,7 +12,6 @@ export class EmergencyService {
             .post(this._baseURL, article)
             .map((res: Response) => res.json())
             .catch(this.handleError);
-
     }
     read(articleId: string): Observable<any> {
         return this._http
@@ -26,7 +25,7 @@ export class EmergencyService {
     }
     delete(articleId: any): Observable<any> {
         return this._http
-            .delete(`${this._baseURL}/${articleId}`)
+            .delete(`${this._baseURL2}/${articleId}`)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

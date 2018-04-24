@@ -51,7 +51,7 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 };
                 EmergencyService.prototype.delete = function (articleId) {
                     return this._http
-                        .delete(this._baseURL + "/" + articleId)
+                        .delete(this._baseURL2 + "/" + articleId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

@@ -34,7 +34,7 @@
         <p>{{article.message}}</p>
         <p>{{article.type}}</p>
         <div *ngIf="allowEdit">
-            <a [routerLink]="['/emergency/edit', article._id, 'edit']" class="btn btn-primary mr-2">edit</a>
+            <a [routerLink]="['/emergency/edit', article._id,'edit']" class="btn btn-primary mr-2">edit</a>
             <button (click)="delete()" class="btn btn-danger">delete</button>
         </div>
     </section>
